@@ -5,6 +5,7 @@ public class Test_DJ2 {
 	
 	public void bonjour() {
 		System.out.println( "Bonjour à tous" );
+		System.out.println( "Ca va ?" ); 
 	}
 	
 	
