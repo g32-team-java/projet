@@ -60,9 +60,9 @@ public class ControllerConnexion {
 		managerGui.execTask( () -> {
 			modelConnexion.ouvrirSessionUtilisateur();
 			Platform.runLater( () -> {
-         			modelInfo.titreProperty().setValue( "Bienvenue" );
-        			modelInfo.messageProperty().setValue( "Connexion réussie" );
-        			managerGui.showView(EnumView.Info);
+         			//modelInfo.titreProperty().setValue( "Bienvenue" );
+        			//modelInfo.messageProperty().setValue( "Connexion réussie" );
+        			managerGui.showView(EnumView.Accueil);
             }) ;
 		} );
 	}

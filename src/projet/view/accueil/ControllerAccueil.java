@@ -12,10 +12,10 @@ public class ControllerAccueil {
 private IManagerGui			managerGui;
 	
 	@FXML
-	private Button participants;
+	private Button Participants;
 	
 	@FXML
-	private Button benevoles;
+	private Button Benevoles;
 	
 	@FXML
 	private void toParticipants() {

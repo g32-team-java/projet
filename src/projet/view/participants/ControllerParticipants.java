@@ -1,24 +1,29 @@
 package projet.view.participants;
 
+import javax.inject.Inject;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import jfox.javafx.view.IManagerGui;
 import projet.view.EnumView;
 
 public class ControllerParticipants {
-
-	@FXML
-	private Button participants;
+@Inject
+private IManagerGui			managerGui;
 	
 	@FXML
-	private Button benevoles;
+	private Button Accueil;
 	
 	@FXML
-	private void toParticipants() {
-		//managerGui.showView( EnumView.CompteListe );
+	private Button Benevoles;
+	
+	@FXML
+	private void toAccueil() {
+		managerGui.showView( EnumView.Accueil );
 	}
 	
 	@FXML
 	private void toBenevoles() {
-		//managerGui.showView( EnumView.CompteListe );
+		managerGui.showView( EnumView.Benevoles );
 	}
 }
