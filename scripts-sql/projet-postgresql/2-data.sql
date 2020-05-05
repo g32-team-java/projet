@@ -2,12 +2,7 @@ SET search_path TO projet;
 
 
 -- Supprimer toutes les données
-DELETE FROM service;
-DELETE FROM concerner;
-DELETE FROM memo;
-DELETE FROM telephone;
-DELETE FROM personne;
-DELETE FROM categorie;
+
 DELETE FROM role;
 DELETE FROM compte;
 
@@ -30,73 +25,17 @@ INSERT INTO role (idcompte, role) VALUES
   ( 2, 'UTILISATEUR' ),
   ( 3, 'UTILISATEUR' );
 
+-- Utilisateurs
 
--- Categorie
-  
-INSERT INTO categorie (idcategorie, libelle ) VALUES 
-  (1, 'Employés' ),
-  (2, 'Partenaires' ),
-  (3, 'Clients' ),
-  (4, 'Fournisseurs' ),
-  (5, 'Dirigeants' );
-
-ALTER TABLE categorie ALTER COLUMN idcategorie RESTART WITH 6;
-
-
--- Personne
-
-INSERT INTO personne (idpersonne, idcategorie, nom, prenom) VALUES 
-  ( 1, 1, 'GRASSET', 'Jérôme' ),
-  ( 2, 1, 'BOUBY', 'Claude' ),
-  ( 3, 1, 'AMBLARD', 'Emmanuel' );
-
-ALTER TABLE personne ALTER COLUMN idpersonne RESTART WITH 4;
-
-
--- Telephone
-
-INSERT INTO telephone (idtelephone, idpersonne, libelle, numero ) VALUES 
-  ( 11, 1, 'Portable', '06 11 11 11 11' ),
-  ( 12, 1, 'Fax', '05 55 99 11 11' ),
-  ( 13, 1, 'Bureau', '05 55 11 11 11' ),
-  ( 21, 2, 'Portable', '06 22 22 22 22' ),
-  ( 22, 2, 'Fax', '05 55 99 22 22' ),
-  ( 23, 2, 'Bureau', '05 55 22 22 22' ),
-  ( 31, 3, 'Portable', '06 33 33 33 33' ),
-  ( 32, 3, 'Fax', '05 55 99 33 33' ),
-  ( 33, 3, 'Bureau', '05 55 33 33 33' );
-
-ALTER TABLE telephone ALTER COLUMN idtelephone RESTART WITH 100;
-
-
--- Memo
-
-INSERT INTO memo (idmemo, titre, description, flagurgent, statut, effectif, budget, echeance, idcategorie ) VALUES 
-  ( 1, 'Mémo n°1', 'Texte du mémo n°1', TRUE,  2,   2,   1234.56,   {d  '2020-02-25' }, 1 ),
-  ( 2, 'Mémo n°2', 'Texte du mémo n°2', FALSE, 1,   4,   5000.00,   {d  '2020-05-18' }, 2 ),
-  ( 3, 'Mémo n°3', NULL, TRUE, 0, NULL, NULL, NULL, NULL );
-
-ALTER TABLE memo ALTER COLUMN idmemo RESTART WITH 4;
-
-
--- Concerner
-
-INSERT INTO concerner (idmemo, idPersonne) VALUES 
-  ( 1, 1 ),
-  ( 1, 2 ),
-  ( 1, 3 ),
-  ( 2, 1 ),
-  ( 2, 2 );
-
-
--- Service
-
-INSERT INTO service ( idservice, nom, anneecreation, flagsiege ) VALUES 
-  ( 1, 'Direction', 2007, TRUE ),
-  ( 2, 'Comptabilité', NULL, TRUE ),
-  ( 3, 'Agence Limoges', 2008, FALSE ),
-  ( 4, 'Agence Brive', 2014, FALSE );
-
-
-ALTER TABLE service ALTER COLUMN idservice RESTART WITH 5;
-
+ INSERT INTO utilisateur (mail, mdp) VALUES 
+ 
+ ('baptiste.paterne@gmail.com', 'I12019'),
+ ('v.dereclenne@gmail.com', 'I12020'),
+ ('monstergege@gmail.com', 'calloflover'),
+ ('kekezez@gmail.com', 'punkdebutant'),
+ ('huiteuros@gmail.com', '8euros'),
+ ('dupond.jena@gmail.com','I12500'),
+ ('alex.alfred@gmail.com','I12000'),
+ ('jacky.michel@gmail.com','I12021'),
+ ('lebg.jean@gmail.com','elements'),
+ ('parlamamain@gmail.com','fatal');
