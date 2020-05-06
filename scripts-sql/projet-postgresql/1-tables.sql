@@ -81,7 +81,6 @@ CREATE TABLE Participant(
 	adresse          VARCHAR (100) NOT NULL ,
 	cp               INTEGER  NOT NULL ,
 	ville            VARCHAR (50) NOT NULL ,
-	mail             VARCHAR (50) NOT NULL ,
 	certificat_ok    BOOL  NOT NULL ,
 	id_club          INTEGER   ,
 	id_utilisateur   INTEGER  NOT NULL  ,
@@ -132,16 +131,14 @@ CREATE TABLE Equipe(
 	nombre_repas            INTEGER  NOT NULL ,
 	id_capitaine            INTEGER  NOT NULL ,
 	id_equipier             INTEGER  NOT NULL ,
-	id_participant          INTEGER  NOT NULL ,
-	id_participant_Former   INTEGER  NOT NULL ,
 	id_raid                 INTEGER  NOT NULL  ,
 	CONSTRAINT Equipe_PK PRIMARY KEY (id_equipe)
 
-	,CONSTRAINT Equipe_Participant_FK FOREIGN KEY (id_participant) REFERENCES Participant(id_participant)
-	,CONSTRAINT Equipe_Participant0_FK FOREIGN KEY (id_participant_Former) REFERENCES Participant(id_participant)
+	,CONSTRAINT Equipe_Capitaine_FK FOREIGN KEY (id_capitaine) REFERENCES Participant(id_participant)
+	,CONSTRAINT Equipe_Equipier_FK FOREIGN KEY (id_equipier) REFERENCES Participant(id_participant)
 	,CONSTRAINT Equipe_Raid1_FK FOREIGN KEY (id_raid) REFERENCES Raid(id_raid)
-	,CONSTRAINT Equipe_Participant_AK UNIQUE (id_participant)
-	,CONSTRAINT Equipe_Participant0_AK UNIQUE (id_participant_Former)
+	,CONSTRAINT Equipe_Capitaine_AK UNIQUE (id_capitaine)
+	,CONSTRAINT Equipe_Equipier_AK UNIQUE (id_equipier)
 )WITHOUT OIDS;
 
 
