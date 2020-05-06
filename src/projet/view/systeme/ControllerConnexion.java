@@ -28,8 +28,7 @@ public class ControllerConnexion {
 	private IManagerGui		managerGui;
 	@Inject
 	private ModelConnexion	modelConnexion;
-	@Inject
-	private ModelInfo		modelInfo;
+	
 	
 	
 	// Initialisation du Controller
@@ -46,7 +45,7 @@ public class ControllerConnexion {
 	
 	
 	public void refresh() {
-		// Ferem la session si elle est ouverte
+		// Ferme la session si elle est ouverte
 		if ( modelConnexion.getCompteActif() != null ) {
 			modelConnexion.fermerSessionUtilisateur();
 		}
@@ -60,8 +59,6 @@ public class ControllerConnexion {
 		managerGui.execTask( () -> {
 			modelConnexion.ouvrirSessionUtilisateur();
 			Platform.runLater( () -> {
-         			//modelInfo.titreProperty().setValue( "Bienvenue" );
-        			//modelInfo.messageProperty().setValue( "Connexion réussie" );
         			managerGui.showView(EnumView.Accueil);
             }) ;
 		} );

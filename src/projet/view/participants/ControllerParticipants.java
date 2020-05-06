@@ -15,15 +15,8 @@ private IManagerGui			managerGui;
 	private Button Accueil;
 	
 	@FXML
-	private Button Benevoles;
-	
-	@FXML
 	private void toAccueil() {
 		managerGui.showView( EnumView.Accueil );
 	}
-	
-	@FXML
-	private void toBenevoles() {
-		managerGui.showView( EnumView.Benevoles );
-	}
+
 }

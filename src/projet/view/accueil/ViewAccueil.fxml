@@ -11,8 +11,8 @@
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="Benevoles" mnemonicParsing="false" onAction="#toBenevoles" text="Benevoles" />
-            <Button fx:id="Participants" mnemonicParsing="false" onAction="#toParticipants" text="Participants" />
+            <Button fx:id="Benevoles" mnemonicParsing="false" onAction="#toBenevoles" prefHeight="50.0" prefWidth="150.0" text="Liste des bénévoles" />
+            <Button fx:id="Participants" mnemonicParsing="false" onAction="#toParticipants" prefHeight="50.0" prefWidth="150.0" text="Liste des participants" />
          </children>
       </HBox>
    </center>

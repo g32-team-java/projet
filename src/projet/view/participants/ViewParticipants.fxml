@@ -4,20 +4,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participants.ControllerParticipants">
-   <center>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="Accueil" mnemonicParsing="false" onAction="#toAccueil" text="Accueil" />
-            <Button fx:id="Benevoles" mnemonicParsing="false" onAction="#toBenevoles" text="Benevoles" />
-         </children>
-      </HBox>
-   </center>
    <top>
-      <Label alignment="CENTER" text="PARTICIPANTS" textAlignment="CENTER" textFill="#0015ff" BorderPane.alignment="CENTER">
+      <Label text="PARTICIPANTS" textFill="#0015ff" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -26,4 +18,11 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <left>
+      <Button fx:id="Accueil" mnemonicParsing="false" onAction="#toAccueil" text="Accueil" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" top="-300.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
 </BorderPane>
