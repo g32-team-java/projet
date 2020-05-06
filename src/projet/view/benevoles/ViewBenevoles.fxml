@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.benevoles.ControllerBenevoles">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.benevoles.ControllerBenevoles">
    <top>
       <Label alignment="CENTER" text="BENEVOLES" textAlignment="CENTER" textFill="#0015ff" BorderPane.alignment="CENTER">
          <font>
@@ -18,7 +18,7 @@
       </Label>
    </top>
    <left>
-      <Button fx:id="Accueil" mnemonicParsing="false" text="Accueil" BorderPane.alignment="CENTER">
+      <Button fx:id="Accueil" mnemonicParsing="false" onAction="#toAccueil" text="Accueil" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="20.0" top="-300.0" />
          </BorderPane.margin>
