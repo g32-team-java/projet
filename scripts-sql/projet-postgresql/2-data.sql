@@ -5,6 +5,12 @@ SET search_path TO projet;
 
 DELETE FROM role;
 DELETE FROM compte;
+DELETE FROM utilisateur;
+DELETE FROM participant;
+DELETE FROM club;
+DELETE FROM equipe;
+DELETE FROM raid;
+DELETE FROM poste;
 
 
 -- Compte
@@ -41,31 +47,40 @@ INSERT INTO role (idcompte, role) VALUES
  ('parlamamain@gmail.com','fatal'),
  ('trevis.alabama@gmail.com','842512');
  
+  INSERT INTO Club (nom_club) VALUES
+  ('Les Limougeauds'),
+  ('Les Dijonnais'),
+  ('CM de LaVille');
+ 
+  ALTER TABLE club ALTER COLUMN id_club RESTART WITH 1;
+  
+   INSERT INTO Participant (nom, prenom, date_naissance, telephone, adresse, cp, ville, certificat_ok, id_club, id_utilisateur) VALUES
+ 
+ ('Jena','DUPOND', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,'1','6'),
+ ('Alfred','ALEX', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,'2','7'),
+ ('Michel','JACKY', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,'3','8'),
+ ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,'2','9'),
+ ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,'1','10'),
+ ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,'3','11');
+ 
+  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 1;
+  	
+   INSERT INTO Raid (type_raid) VALUES
+  ('Grand Bol d''air'),
+  ('Petit Bol d''air');
+ 
+  ALTER TABLE raid ALTER COLUMN id_raid RESTART WITH 1;
+  
+  
+  INSERT INTO Equipe (nom, etat_inscription, nombre_repas, id_capitaine, id_equipier, id_raid) VALUES
+ 
+ ('Equipe 1',TRUE,'2','1','5','1'),
+ ('Equipe 2',TRUE,'2','2','4','2'),
+ ('Equipe 3',TRUE,'2','3','6','1');
+ 
+ ALTER TABLE equipe ALTER COLUMN id_equipe RESTART WITH 1;
+ 
 
- 
- INSERT INTO Participant (nom, prenom, date_naissance, telephone, adresse, cp, ville, certificat_ok, id_club, id_utilisateur) VALUES
- 
- ('Jena','DUPOND','{d '2000-02-25'}','0670079746','3 rue de la Marne','87000','Limoges',TRUE,'1','6'),
- ('Alfred','ALEX','{d '2001-12-12'}','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,'2','7'),
- ('Michel','JACKY','{d '1995-01-01'}','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,'3','8'),
- ('Jean','DEPARDIEU','{d '1996-05-18'}','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,'2','9'),
- ('Eric','KANT','{d '1992-04-22'}','0635996585','86 rue du vide','87000','Limoges',TRUE,'1','10'),
- ('Trevis','ALABAMA','{d '1958-06-18'}','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,'3','11');
- 
- INSERT INTO Club (nom_club) VALUES
- ('Les Limougeauds'),
- ('Les Dijonnais'),
- ('CM de LaVille');
- 
- INSERT INTO Equipe (nom, etat_inscription, nombre_repas, id_capitaine, id_equipier, id_raid) VALUES
- 
- ('Equipe 1',TRUE,'2','6','10','1'),
- ('Equipe 2',TRUE,'2','7','9','2'),
- ('Equipe 3',TRUE,'2','8','11','1');
- 
- INSERT INTO Raid (type_raid) VALUES
- ('Grand Bol d''air'),
- ('Petit Bol d''air');
  
  INSERT INTO poste (nom, nb_poste, majeur, membre, horaire_deb_esti, horaire_fin_esti) VALUES
   ('parking voiture', 2, TRUE, TRUE, '07:00', '09:00'),
