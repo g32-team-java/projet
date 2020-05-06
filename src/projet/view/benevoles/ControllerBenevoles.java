@@ -12,15 +12,7 @@ public class ControllerBenevoles {
 private IManagerGui			managerGui;
 
 	@FXML
-	private Button Participants;
-	
-	@FXML
 	private Button Accueil;
-	
-	@FXML
-	private void toParticipants() {
-		managerGui.showView( EnumView.Participants );
-	}
 	
 	@FXML
 	private void toAccueil() {
