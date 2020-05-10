@@ -3,15 +3,16 @@ SET search_path TO projet;
 
 -- Supprimer toutes les données
 
-DELETE FROM role;
-DELETE FROM compte;
-DELETE FROM utilisateur;
-DELETE FROM participant;
-DELETE FROM club;
 DELETE FROM equipe;
 DELETE FROM raid;
+DELETE FROM participant;
+DELETE FROM club;
+DELETE FROM avoir;
 DELETE FROM poste;
-
+DELETE FROM benevole;
+DELETE FROM utilisateur;
+DELETE FROM role;
+DELETE FROM compte;
 
 -- Compte
 
@@ -47,6 +48,11 @@ INSERT INTO role (idcompte, role) VALUES
  ('parlamamain@gmail.com','fatal'),
  ('trevis.alabama@gmail.com','842512');
  
+ 
+  
+  
+  ALTER TABLE benevole ALTER COLUMN id_benevole RESTART WITH 1;
+ 
   INSERT INTO Club (nom_club) VALUES
   ('Les Limougeauds'),
   ('Les Dijonnais'),
@@ -62,6 +68,7 @@ INSERT INTO role (idcompte, role) VALUES
  ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,'2','9'),
  ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,'1','10'),
  ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,'3','11');
+
  
   ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 1;
   	
@@ -80,7 +87,6 @@ INSERT INTO role (idcompte, role) VALUES
  
  ALTER TABLE equipe ALTER COLUMN id_equipe RESTART WITH 1;
  
-
  
  INSERT INTO poste (nom, nb_poste, majeur, membre, horaire_deb_esti, horaire_fin_esti) VALUES
   ('parking voiture', 2, TRUE, TRUE, '07:00', '09:00'),
@@ -100,7 +106,20 @@ INSERT INTO role (idcompte, role) VALUES
   ('recuperation puces', 1, FALSE, TRUE, '12:00', '13:30'),
   ('photographe', 2, TRUE, FALSE, '07:00', '14:00');
   
-  /*INSERT INTO benevole (nom, prenom, permis, majeur, telephone) VALUES
-  ()
+  INSERT INTO benevole (nom, prenom, permis, majeur, membre, telephone, id_utilisateur) VALUES
+  ('Baptiste', 'Paterne', TRUE,TRUE, FALSE, 0770707070, 1 ),
+  ('Vincent', 'Dereclenne', TRUE, TRUE, TRUE, 0680545153,2),
+  ('Gege', 'Monster', FALSE,FALSE, FALSE, 0606060606,3 ),
+  ('keke', 'Zeze', FALSE, FALSE, TRUE, 0658963215, 4),
+  ('8', 'euros', FALSE,TRUE, FALSE, 0647251386, 5 );
   
-  ALTER TABLE benevole ALTER COLUMN id_benevole RESTART WITH 100;*/
+  
+  INSERT INTO avoir( id_poste, id_benevole, horaire_deb, horaire_fin) VALUES 
+  (12,1,'09:00', '13:30'),
+  (1,2,'07:00', '09:00'),
+  (5,3,'09:00', '13:00'),
+  (15,4,'12:00', '13:30'),
+  (16,5,'07:00', '14:00');
+  
+  
+ 

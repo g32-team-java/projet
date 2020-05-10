@@ -101,7 +101,7 @@ CREATE TABLE Benevole(
 	Prenom           VARCHAR (50) NOT NULL ,
 	Permis           BOOL  NOT NULL ,
 	Majeur           BOOL  NOT NULL ,
-	mail             VARCHAR (50) NOT NULL ,
+	Membre			 BOOL  NOT NULL ,
 	telephone        INTEGER  NOT NULL ,
 	id_utilisateur   INTEGER  NOT NULL  ,
 	CONSTRAINT Benevole_PK PRIMARY KEY (id_benevole)
