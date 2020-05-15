@@ -31,7 +31,7 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM Benevole ORDER BY nom";
+			sql = "SELECT * FROM benevole ORDER BY nom";
 			stmt = cn.prepareStatement( sql );
 			rs = stmt.executeQuery();
 
@@ -54,13 +54,12 @@ public class DaoBenevoles {
 	}
 	private Benevoles construireBenevoles(ResultSet rs, boolean flagComplet) throws SQLException {
 		Benevoles benevole= new Benevoles();
-		benevole.setId( rs.getObject( "id_benevole", Integer.class ) );
+		benevole.setId( rs.getObject( "id_utilisateur", Integer.class ) );
 		benevole.setNom( rs.getObject( "nom", String.class ) );
 		benevole.setPrenom( rs.getObject( "prenom", String.class ) );
 		benevole.setPermis( rs.getObject( "permis", Boolean.class ) );
 		benevole.setMajeur( rs.getObject( "majeur", Boolean.class ) );
-		benevole.setMail( rs.getObject( "mail", String.class ) );
 		benevole.setTelephone( rs.getObject( "telephone", Integer.class ) );
-		return null;
+		return benevole;
 	}
 }

@@ -30,6 +30,9 @@ public Benevoles(int id, String nom, String prenom, boolean permis, boolean maje
 	setTelephone(telephone);	
 }
 
+	public String toString() {
+		return this.getNom();
+	}
 
 
 

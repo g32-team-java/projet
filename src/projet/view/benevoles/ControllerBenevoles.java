@@ -39,23 +39,4 @@ private ModelBenevoles		modelBenevoles;
 		ListeBenevoles.setItems(modelBenevoles.getListe());
 	}
 	
-	public void refresh() {
-		modelBenevoles.actualiserListe();
-		UtilFX.selectInListView( ListeBenevoles, modelBenevoles.getCourant() );
-		ListeBenevoles.requestFocus();
-	}
-	
-	// Clic sur la liste
-		@FXML
-		private void gererClicSurListe( MouseEvent event ) {
-			if (event.getButton().equals(MouseButton.PRIMARY)) {
-				if (event.getClickCount() == 2) {
-					if ( ListeBenevoles.getSelectionModel().getSelectedIndex() == -1 ) {
-						managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
-					} else {
-						toDetails();
-					}
-				}
-			}
-		}
 }
