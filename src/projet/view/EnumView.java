@@ -30,6 +30,7 @@ public enum EnumView implements IEnumView {
 	Accueil				("accueil/ViewAccueil.fxml"),
 	Participants		("participants/ViewParticipants.fxml"),
 	Benevoles			("benevoles/ViewBenevoles.fxml"),
+	DetailsBenevoles	("benevoles/ViewDetailsBenevoles.fxml"),
 	;
 
 	
