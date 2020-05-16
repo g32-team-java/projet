@@ -3,11 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participants.ControllerParticipants">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.participants.ControllerParticipants">
    <top>
       <Label text="PARTICIPANTS" textFill="#0015ff" BorderPane.alignment="CENTER">
          <font>
@@ -18,18 +18,20 @@
          </BorderPane.margin>
       </Label>
    </top>
-   <left>
-      <Button fx:id="Accueil" mnemonicParsing="false" onAction="#toAccueil" text="Accueil" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="20.0" top="-275.0" />
-         </BorderPane.margin>
-      </Button>
-   </left>
    <center>
-      <ListView maxHeight="300.0" maxWidth="350.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets right="20.0" />
-         </BorderPane.margin>
-      </ListView>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ListeInscrits" mnemonicParsing="false" onAction="#toListeInscrit" text="Liste des participants inscrits" />
+            <Button fx:id="Accueil" layoutY="200.0" mnemonicParsing="false" onAction="#toAccueil" text="Accueil">
+               <HBox.margin>
+                  <Insets top="75.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="ListeDemande" mnemonicParsing="false" onAction="#toListeDemandes" text="Liste des demandes d'insciption" />
+         </children>
+         <padding>
+            <Insets left="25.0" top="125.0" />
+         </padding>
+      </HBox>
    </center>
 </BorderPane>
