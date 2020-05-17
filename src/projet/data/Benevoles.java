@@ -16,131 +16,128 @@ public class Benevoles {
 	private final Property<Integer> telephone = new SimpleObjectProperty<>();	
 
 
-public Benevoles() {
-}
+	public Benevoles() {
+	}
 
-public Benevoles(int id, String nom, String prenom, boolean permis, boolean majeur, String mail, int telephone) {
+	public Benevoles(int id, String nom, String prenom, boolean permis, boolean majeur, String mail, int telephone) {
 
-	setId(id);
-	setNom(nom);
-	setPrenom(prenom);
-	setPermis(permis);
-	setMajeur(majeur);
-	setMail(mail);
-	setTelephone(telephone);	
-}
+		setId(id);
+		setNom(nom);
+		setPrenom(prenom);
+		setPermis(permis);
+		setMajeur(majeur);
+		setMail(mail);
+		setTelephone(telephone);	
+	}
 
 	public String toString() {
 		return this.getNom();
 	}
 
+	//Get-Set
+
+	public final Property<Integer> idProperty() {
+		return this.id;
+	}
 
 
-
-//Get-Set
-
-public final Property<Integer> idProperty() {
-	return this.id;
-}
+	public final Integer getId() {
+		return this.idProperty().getValue();
+	}
 
 
-public final Integer getId() {
-	return this.idProperty().getValue();
-}
+	public final void setId(final Integer id) {
+		this.idProperty().setValue(id);
+	}
 
 
-public final void setId(final Integer id) {
-	this.idProperty().setValue(id);
-}
+	public final StringProperty nomProperty() {
+		return this.nom;
+	}
 
 
-public final StringProperty nomProperty() {
-	return this.nom;
-}
+	public final String getNom() {
+		return this.nomProperty().get();
+	}
 
 
-public final String getNom() {
-	return this.nomProperty().get();
-}
+	public final void setNom(final String nom) {
+		this.nomProperty().set(nom);
+	}
 
 
-public final void setNom(final String nom) {
-	this.nomProperty().set(nom);
-}
+	public final StringProperty prenomProperty() {
+		return this.prenom;
+	}
 
 
-public final StringProperty prenomProperty() {
-	return this.prenom;
-}
+	public final String getPrenom() {
+		return this.prenomProperty().get();
+	}
 
 
-public final String getPrenom() {
-	return this.prenomProperty().get();
-}
+	public final void setPrenom(final String prenom) {
+		this.prenomProperty().set(prenom);
+	}
 
 
-public final void setPrenom(final String prenom) {
-	this.prenomProperty().set(prenom);
-}
+	public final Property<Boolean> permisProperty() {
+		return this.permis;
+	}
 
 
-public final Property<Boolean> permisProperty() {
-	return this.permis;
-}
+	public final Boolean getPermis() {
+		return this.permisProperty().getValue();
+	}
 
 
-public final Boolean getPermis() {
-	return this.permisProperty().getValue();
-}
+	public final void setPermis(final Boolean permis) {
+		this.permisProperty().setValue(permis);
+	}
 
 
-public final void setPermis(final Boolean permis) {
-	this.permisProperty().setValue(permis);
-}
+	public final Property<Boolean> majeurProperty() {
+		return this.majeur;
+	}
 
 
-public final Property<Boolean> majeurProperty() {
-	return this.majeur;
-}
+	public final Boolean getMajeur() {
+		return this.majeurProperty().getValue();
+	}
 
 
-public final Boolean getMajeur() {
-	return this.majeurProperty().getValue();
-}
+	public final void setMajeur(final Boolean majeur) {
+		this.majeurProperty().setValue(majeur);
+	}
 
 
-public final void setMajeur(final Boolean majeur) {
-	this.majeurProperty().setValue(majeur);
-}
+	public final StringProperty mailProperty() {
+		return this.mail;
+	}
 
 
-public final StringProperty mailProperty() {
-	return this.mail;
-}
+	public final String getMail() {
+		return this.mailProperty().get();
+	}
 
 
-public final String getMail() {
-	return this.mailProperty().get();
-}
+	public final void setMail(final String mail) {
+		this.mailProperty().set(mail);
+	}
 
 
-public final void setMail(final String mail) {
-	this.mailProperty().set(mail);
-}
+	public final Property<Integer> telephoneProperty() {
+		return this.telephone;
+	}
 
 
-public final Property<Integer> telephoneProperty() {
-	return this.telephone;
-}
+	public final Integer getTelephone() {
+		return this.telephoneProperty().getValue();
+	}
 
 
-public final Integer getTelephone() {
-	return this.telephoneProperty().getValue();
-}
-
-
-public final void setTelephone(final Integer telephone) {
-	this.telephoneProperty().setValue(telephone);
-}
+	public final void setTelephone(final Integer telephone) {
+		this.telephoneProperty().setValue(telephone);
+	}
 
 }
