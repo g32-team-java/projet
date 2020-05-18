@@ -50,8 +50,30 @@ public class DaoBenevoles {
 
 	public List<Benevoles> lister(){
 		
-		return null;
+		Connection			cn 		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT * FROM benevole WHERE id_benevole=1";
+			stmt = cn.prepareStatement( sql );
+			rs = stmt.executeQuery();
+
+			List<Benevoles> benevoles = new LinkedList<>();
+			while (rs.next()) {
+				benevoles.add( construireBenevoles( rs, false ) );
+			}
+			return benevoles;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
 	}
+	
 	private Benevoles construireBenevoles(ResultSet rs, boolean flagComplet) throws SQLException {
 		Benevoles benevole= new Benevoles();
 		benevole.setId( rs.getObject( "id_utilisateur", Integer.class ) );
