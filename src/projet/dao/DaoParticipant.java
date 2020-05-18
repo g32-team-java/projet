@@ -54,7 +54,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM participant WHERE certifiat_ok IS TRUE ORDER BY nom";
+			sql = "SELECT * FROM participant WHERE inscription_ok IS TRUE ORDER BY nom";
 			stmt = cn.prepareStatement( sql );
 			rs = stmt.executeQuery();
 
@@ -80,7 +80,7 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM participant WHERE certifiat_ok IS FALSE ORDER BY nom";
+			sql = "SELECT * FROM participant WHERE inscription_ok IS FALSE ORDER BY nom";
 			stmt = cn.prepareStatement( sql );
 			rs = stmt.executeQuery();
 
@@ -112,7 +112,8 @@ public class DaoParticipant {
 		participant.setAdresse( rs.getObject( "adresse", String.class ) );
 		participant.setCp( rs.getObject( "cp", Integer.class ) );
 		participant.setVille( rs.getObject( "ville", String.class ) );
-		participant.setCertificat( rs.getObject( "majeur", Boolean.class ) );
+		participant.setCertificat( rs.getObject( "certificat_ok", Boolean.class ) );
+		participant.setInscription( rs.getObject( "inscription_ok", Boolean.class ) );
 		return participant;
 	}
 }

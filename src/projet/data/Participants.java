@@ -14,12 +14,22 @@ public class Participants {
 	private Property<Integer> cp = new SimpleObjectProperty<>();
 	private StringProperty ville = new SimpleStringProperty();
 	private Property<Boolean> certificat = new SimpleObjectProperty<>();
+	private Property<Boolean> inscription = new SimpleObjectProperty<>();
 
 	public Participants (){
 		
 	}
 	
-	public Participants (int id, String nom, String prenom, int telephone, String adresse, int cp, String ville, boolean certificat){
+	public Participants (int id, String nom, String prenom, int telephone, String adresse, int cp, String ville, boolean certificat,  boolean inscription){
+		setId(id);
+		setNom(nom);
+		setPrenom(prenom);
+		setTelephone(telephone);
+		setAdresse(adresse);
+		setCp(cp);
+		setVille(ville);
+		setCertificat(certificat);
+		setInscription(inscription);
 		
 	}
 	
@@ -144,6 +154,19 @@ public class Participants {
 		this.certificatProperty().setValue(certificat);
 	}
 	
+	public final Property<Boolean> inscriptionProperty() {
+		return this.inscription;
+	}
+
+
+	public final Boolean getInscription() {
+		return this.inscriptionProperty().getValue();
+	}
+
+
+	public final void setInscription(final Boolean inscription) {
+		this.inscriptionProperty().setValue(inscription);
+	}
 	
 
 	
