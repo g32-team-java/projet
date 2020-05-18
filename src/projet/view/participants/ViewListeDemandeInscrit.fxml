@@ -24,10 +24,11 @@
          <children>
             <Button fx:id="b_Accueil" mnemonicParsing="false" onAction="#toAccueil" prefWidth="72.0" text="Accueil" />
             <Button fx:id="b_ListeInscrits" mnemonicParsing="false" onAction="#toListeInscrit" prefHeight="52.0" prefWidth="73.0" text="Liste des inscrits" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="b_Modifier" mnemonicParsing="false" onAction="#doModifier" text="Détail" />
          </children>
       </VBox>
    </left>
    <center>
-      <ListView fx:id="lv_ListeDemande" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="lv_ListeDemande" onMouseClicked="#gererClicSurListe" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

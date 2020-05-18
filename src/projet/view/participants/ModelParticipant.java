@@ -19,6 +19,7 @@ import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoParticipant;
 import projet.data.Participants;
+import projet.view.systeme.ModelConfig;
 
 
 public class ModelParticipant {
@@ -27,28 +28,38 @@ public class ModelParticipant {
 
 	private final Participants courant = new Participants();
 
+	
+
 	@Inject
 	private IMapper			mapper;
-	
+
+
+
 	@Inject
 	private DaoParticipant	daoParticipant;
-	
-	public ObservableList<Participants> getListe() {
- 		return liste;
- 	}
 
- 	public Participants getCourant() {
- 		return courant;
- 	}
- 	
-// Actualisations
- 	public void actualiserListeInscrits() {
- 		liste.setAll( daoParticipant.listerInscrits() );
-  	}
- 	
- 	public void actualiserListeDemandes() {
- 		liste.setAll( daoParticipant.listerDemandes() );
-  	}
+	public ObservableList<Participants> getListe() {
+		return liste;
+	}
+
+	public Participants getCourant() {
+		return courant;
+	}
+
+	// Actualisations
+	public void actualiserListeInscrits() {
+		liste.setAll( daoParticipant.listerInscrits() );
+	}
+
+	public void actualiserListeDemandes() {
+		liste.setAll( daoParticipant.listerDemandes() );
+	}
+
+	public void preparerModifier(Participants item) {
+		mapper.update( courant, daoParticipant.retrouverParticipant(item.getId()) );
+	}
+
+	
 
 
 }
