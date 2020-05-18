@@ -106,7 +106,7 @@ INSERT INTO role (idcompte, role) VALUES
   ('recuperation puces', 1, FALSE, TRUE, '12:00', '13:30'),
   ('photographe', 2, TRUE, FALSE, '07:00', '14:00');
   
-  INSERT INTO benevole (nom, prenom, permis, majeur, membre, telephone, id_utilisateur) VALUES
+  INSERT INTO benevole (prenom, nom, permis, majeur, membre, telephone, id_utilisateur) VALUES
   ('Baptiste', 'Paterne', TRUE,TRUE, FALSE, 0770707070, 1 ),
   ('Vincent', 'Dereclenne', TRUE, TRUE, TRUE, 0680545153,2),
   ('Gege', 'Monster', FALSE,FALSE, FALSE, 0606060606,3 ),
