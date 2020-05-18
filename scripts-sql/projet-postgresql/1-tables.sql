@@ -82,6 +82,7 @@ CREATE TABLE Participant(
 	cp               INTEGER  NOT NULL ,
 	ville            VARCHAR (50) NOT NULL ,
 	certificat_ok    BOOL  NOT NULL ,
+	inscription_ok  BOOL  NOT NULL ,
 	id_club          INTEGER   ,
 	id_utilisateur   INTEGER  NOT NULL  ,
 	CONSTRAINT Participant_PK PRIMARY KEY (id_participant)

@@ -5,12 +5,17 @@ import javax.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.view.EnumView;
 
 public class ControllerListeDemandeInscrit {
+
 	@Inject
 	private IManagerGui			managerGui;
+
+	@Inject 
+	private ModelParticipant  modelParticipant;
 
 	@FXML
 	private Button b_Accueil;
@@ -26,8 +31,20 @@ public class ControllerListeDemandeInscrit {
 	}
 
 	@FXML
-	private void toListeDemande() {
+	private void toListeInscrit() {
 		managerGui.showView( EnumView.ListeInscrits);
+	}
+
+	@FXML
+	private void initialize() {
+		modelParticipant.actualiserListeDemandes();
+		lv_ListeDemande.setItems(modelParticipant.getListe());
+	}
+	
+	public void refresh() {
+		modelParticipant.actualiserListeDemandes();
+		UtilFX.selectInListView( lv_ListeDemande, modelParticipant.getCourant() );
+		lv_ListeDemande.requestFocus();
 	}
 
 
