@@ -71,7 +71,7 @@ public class DaoParticipant {
 		}
 
 	}
-	
+
 	public List<Participants> listerDemandes(){
 		Connection			cn 		= null;
 		PreparedStatement	stmt 	= null;
@@ -102,6 +102,36 @@ public class DaoParticipant {
 
 		return null;
 	}
+
+	public Participants retrouverParticipant(int idParticipant){
+
+		Connection			cn 		= null;
+		PreparedStatement	stmt 	= null;
+		ResultSet 			rs		= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT * FROM participant WHERE id_participant = ?";
+			stmt = cn.prepareStatement( sql );
+			stmt.setInt(1,idParticipant);
+			rs = stmt.executeQuery();
+
+			if(rs.next()) {
+				return construireParticipants(rs, true);
+			}else {
+				return null;
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( rs, stmt, cn );
+		}
+
+	}
+
+
 
 	private Participants construireParticipants(ResultSet rs, boolean flagComplet) throws SQLException {
 		Participants participant= new Participants();
