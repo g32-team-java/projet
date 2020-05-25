@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevoles;
-import projet.data.Memo;
 
 public class DaoBenevoles {
 	
