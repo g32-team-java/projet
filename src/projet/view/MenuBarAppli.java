@@ -74,8 +74,16 @@ public class MenuBarAppli extends MenuBar {
 		this.getMenus().add(menu);
 		menuParticipants = menu;
 		
-		item = new MenuItem( "Liste des Participants" );
-		item.setOnAction(  (e) -> managerGui.showView( EnumView.Participants )  );
+		item = new MenuItem( "Liste des participants inscrits " );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.ListeInscrits )  );
+		menu.getItems().add( item );
+		
+		item = new MenuItem( "Liste des demandes d'inscription " );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.ListeDemandeInscrit )  );
+		menu.getItems().add( item );
+		
+		item = new MenuItem( "Statistiques");
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.Statistiques )  );
 		menu.getItems().add( item );
 
 		
