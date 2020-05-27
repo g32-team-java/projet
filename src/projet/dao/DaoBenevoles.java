@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevoles;
-import projet.data.Participants;
 import projet.view.benevoles.ModelBenevoles;
 
 

@@ -27,12 +27,11 @@ public class ModelParticipant {
 	private final ObservableList<Participants> liste = FXCollections.observableArrayList(); 
 
 	private final Participants courant = new Participants();
-
+	
 	
 
 	@Inject
 	private IMapper			mapper;
-
 
 
 	@Inject
@@ -45,6 +44,8 @@ public class ModelParticipant {
 	public Participants getCourant() {
 		return courant;
 	}
+	
+	
 
 	// Actualisations
 	public void actualiserListeInscrits() {
@@ -58,8 +59,6 @@ public class ModelParticipant {
 	public void preparerModifier(Participants item) {
 		mapper.update( courant, daoParticipant.retrouverParticipant(item.getId()) );
 	}
-
 	
-
 
 }
