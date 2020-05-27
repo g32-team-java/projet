@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevoles;
-import projet.data.Participants;
 
 
 public class DaoBenevoles {
@@ -113,7 +112,7 @@ public class DaoBenevoles {
 		}
 	}
 
-	private void supprimer(int idBenevoles) {
+	public void supprimer(int idBenevoles) {
 
 		Connection cn = null;
 		PreparedStatement stmt = null;
@@ -157,31 +156,4 @@ public class DaoBenevoles {
 		}
 	}
 
-	public Benevoles retrouverBenevoles(int idBenevoles){
-
-		Connection			cn 		= null;
-		PreparedStatement	stmt 	= null;
-		ResultSet 			rs		= null;
-		String				sql;
-
-		try {
-			cn = dataSource.getConnection();
-			sql = "SELECT * FROM participant WHERE id_participant = ?";
-			stmt = cn.prepareStatement( sql );
-			stmt.setInt(1,idBenevoles);
-			rs = stmt.executeQuery();
-
-			if(rs.next()) {
-				return construireBenevoles(rs, true);
-			}else {
-				return null;
-			}
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			UtilJdbc.close( rs, stmt, cn );
-		}
-
-	}
 }
