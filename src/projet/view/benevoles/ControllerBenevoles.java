@@ -29,10 +29,8 @@ private ModelBenevoles		modelBenevoles;
 	@FXML
 	private Button Details;
 	
-//	ObservableList<Benevoles> benes=FXCollections.observableArrayList();
 	
 	@FXML
-//	private ListView<Benevoles> ListeBenevoles=new ListView<Benevoles>(benes);
 	private ListView<Benevoles> ListeBenevoles;
 	
 	@FXML
@@ -47,16 +45,21 @@ private ModelBenevoles		modelBenevoles;
 	
 	@FXML
 	private void initialize() {
-		modelBenevoles.actualiserListe();
 		ListeBenevoles.setItems(modelBenevoles.getListe());
-//		ListeBenevoles.getSelectionModel().selectedItemProperty().addListener(ChangeListener<? extends Benevoles>{
-//			@Override
-//			public void changed(ObservableValue<? extends Benevoles> obsval,Benevoles oldVal, Benevoles newVal)
-//			{System.out.println(oldVal+"->"+newVal);});
-//			
-//		});
+		ListeBenevoles.setCellFactory( UtilFX.cellFactory( item -> item.getNom() ) );
+		ListeBenevoles.getSelectionModel().selectedItemProperty().addListener(
+				(obs, oldVal, newVal) -> {
+					configurerBoutons();
+				});
+		configurerBoutons();
 	}
-//en cours - - - - - - - - -	
+
+	public void refresh() {
+		modelBenevoles.actualiserListe();
+		UtilFX.selectInListView( ListeBenevoles, modelBenevoles.getCourant() );
+		ListeBenevoles.requestFocus();
+	}
+	
 	@FXML
 	private void doModifier() {
 		Benevoles item =  ListeBenevoles.getSelectionModel().getSelectedItem();
@@ -80,6 +83,15 @@ private ModelBenevoles		modelBenevoles;
 			}
 		}
 	}
-//- - -- - -  - - - - - --
-	
+
+	private void configurerBoutons() {
+
+		if( ListeBenevoles.getSelectionModel().getSelectedItems().isEmpty() ) {
+			Details.setDisable(true);
+
+		} else {
+			Details.setDisable(false);
+
+		}
+	}
 }
