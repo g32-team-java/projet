@@ -39,6 +39,10 @@ public class ModelBenevoles {
  		
   	}
  	
+ 	public void preparerModifier(Benevoles item) {
+ 		mapper.update(courant, daoBenevoles.retrouverBenevoles(item.getId()));
+ 	}
+ 	
  	@PostConstruct
 	public void init()
 	{

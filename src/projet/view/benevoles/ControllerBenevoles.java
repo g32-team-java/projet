@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevoles;
+import projet.data.Participants;
 import projet.view.EnumView;
 
 public class ControllerBenevoles {
@@ -55,8 +56,30 @@ private ModelBenevoles		modelBenevoles;
 //			
 //		});
 	}
+//en cours - - - - - - - - -	
+	@FXML
+	private void doModifier() {
+		Benevoles item =  ListeBenevoles.getSelectionModel().getSelectedItem();
+		if ( item == null ) {
+			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
+		} else {
+			modelBenevoles.preparerModifier(item);
+			managerGui.showView( EnumView.DetailsBenevoles );
+		}
+	}
 		 
-	
- 
+	@FXML
+	private void gererClicSurListe( MouseEvent event ) {
+		if (event.getButton().equals(MouseButton.PRIMARY)) {
+			if (event.getClickCount() == 2) {
+				if ( ListeBenevoles.getSelectionModel().getSelectedIndex() == -1 ) {
+					managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
+				} else {
+					doModifier();
+				}
+			}
+		}
+	}
+//- - -- - -  - - - - - --
 	
 }
