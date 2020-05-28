@@ -32,11 +32,11 @@ public class ModelParticipant {
 
 	@Inject
 	private IMapper			mapper;
+
+
 	@Inject
 	private DaoParticipant	daoParticipant;
 	
-	
-
 	public ObservableList<Participants> getListe() {
 		return liste;
 	}

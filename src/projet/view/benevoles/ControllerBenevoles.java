@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevoles;
+import projet.data.Participants;
 import projet.view.EnumView;
 
 public class ControllerBenevoles {
@@ -28,10 +29,8 @@ private ModelBenevoles		modelBenevoles;
 	@FXML
 	private Button Details;
 	
-//	ObservableList<Benevoles> benes=FXCollections.observableArrayList();
 	
 	@FXML
-//	private ListView<Benevoles> ListeBenevoles=new ListView<Benevoles>(benes);
 	private ListView<Benevoles> ListeBenevoles;
 	
 	@FXML
@@ -46,17 +45,53 @@ private ModelBenevoles		modelBenevoles;
 	
 	@FXML
 	private void initialize() {
-		modelBenevoles.actualiserListe();
 		ListeBenevoles.setItems(modelBenevoles.getListe());
-//		ListeBenevoles.getSelectionModel().selectedItemProperty().addListener(ChangeListener<? extends Benevoles>{
-//			@Override
-//			public void changed(ObservableValue<? extends Benevoles> obsval,Benevoles oldVal, Benevoles newVal)
-//			{System.out.println(oldVal+"->"+newVal);});
-//			
-//		});
+		ListeBenevoles.setCellFactory( UtilFX.cellFactory( item -> item.getNom() ) );
+		ListeBenevoles.getSelectionModel().selectedItemProperty().addListener(
+				(obs, oldVal, newVal) -> {
+					configurerBoutons();
+				});
+		configurerBoutons();
+	}
+
+	public void refresh() {
+		modelBenevoles.actualiserListe();
+		UtilFX.selectInListView( ListeBenevoles, modelBenevoles.getCourant() );
+		ListeBenevoles.requestFocus();
+	}
+	
+	@FXML
+	private void doModifier() {
+		Benevoles item =  ListeBenevoles.getSelectionModel().getSelectedItem();
+		if ( item == null ) {
+			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
+		} else {
+			modelBenevoles.preparerModifier(item);
+			managerGui.showView( EnumView.DetailsBenevoles );
+		}
 	}
 		 
-	
- 
-	
+	@FXML
+	private void gererClicSurListe( MouseEvent event ) {
+		if (event.getButton().equals(MouseButton.PRIMARY)) {
+			if (event.getClickCount() == 2) {
+				if ( ListeBenevoles.getSelectionModel().getSelectedIndex() == -1 ) {
+					managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
+				} else {
+					doModifier();
+				}
+			}
+		}
+	}
+
+	private void configurerBoutons() {
+
+		if( ListeBenevoles.getSelectionModel().getSelectedItems().isEmpty() ) {
+			Details.setDisable(true);
+
+		} else {
+			Details.setDisable(false);
+
+		}
+	}
 }

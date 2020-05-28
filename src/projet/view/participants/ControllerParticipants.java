@@ -13,11 +13,13 @@ public class ControllerParticipants {
 private IManagerGui			managerGui;
 	
 	@FXML
-	private Button Accueil;
+	private Button b_accueil;
 	@FXML
-	private Button ListeDemande;
+	private Button b_listeDemande;
 	@FXML
-	private Button ListeInscrits;
+	private Button b_listeInscrits;
+	@FXML
+	private Button b_Stats;
 	
 	@FXML
 	private void toAccueil() {
@@ -32,6 +34,11 @@ private IManagerGui			managerGui;
 	@FXML
 	private void toListeDemandes() {
 		managerGui.showView( EnumView.ListeDemandeInscrit);
+	}
+	
+	@FXML
+	private void toStats() {
+		managerGui.showView(EnumView.Statistiques);
 	}
 
 }
