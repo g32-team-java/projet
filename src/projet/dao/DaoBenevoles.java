@@ -113,7 +113,7 @@ public class DaoBenevoles {
 		}
 	}
 
-	private void supprimer(int idBenevoles) {
+	public void supprimer(int idBenevoles) {
 
 		Connection cn = null;
 		PreparedStatement stmt = null;

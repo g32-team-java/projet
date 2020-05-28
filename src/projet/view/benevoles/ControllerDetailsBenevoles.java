@@ -14,6 +14,7 @@ import jfox.javafx.view.IManagerGui;
 import projet.view.EnumView;
 import projet.dao.DaoBenevoles;
 import projet.data.Benevoles;
+import projet.data.Personne;
 
 public class ControllerDetailsBenevoles {
 @Inject
@@ -36,6 +37,8 @@ private ModelBenevoles modelBenevoles;
 	@FXML
 	private ListView<String> Details;
 	
+	@FXML
+	private ListView<Benevoles>	listViewBenevoles;
 	
 	@FXML
 	private void initialize() {
@@ -59,7 +62,11 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void supprimerBenevole() {
-		//DaoBenevoles.supprimer(?);
+		//DaoBenevoles.supprimer();
+		ObservableList<Benevoles> selectedItems = listViewBenevoles.getSelectionModel().getSelectedItems();
+		for ( int i = selectedItems.size() - 1; i >= 0; --i ) {
+			modelBenevoles.supprimer( selectedItems.get(i) );
+		}
 	}
 	
 	private void configurerBoutons() {
