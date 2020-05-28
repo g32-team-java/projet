@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevoles;
-import projet.view.benevoles.ModelBenevoles;
 
 
 public class DaoBenevoles {
@@ -31,7 +30,7 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM benevole ORDER BY nom";
+			sql = "SELECT * FROM benevole ORDER BY id_benevole";
 			stmt = cn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 
@@ -48,7 +47,7 @@ public class DaoBenevoles {
 		}
 	}
 
-	public Benevoles lister() {
+	public Benevoles lister(int idbenevole) {
 
 		Connection cn = null;
 		PreparedStatement stmt = null;
@@ -57,9 +56,9 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM benevole WHERE id_benevole=1";
+			sql = "SELECT * FROM benevole WHERE id_benevole = ?";
 			stmt = cn.prepareStatement(sql);
-			//stmt.setObject(1, idbenevole);
+			stmt.setObject(1, idbenevole);
 			rs = stmt.executeQuery();
 			Benevoles benevole=new Benevoles();
 			while (rs.next()) {
@@ -76,7 +75,7 @@ public class DaoBenevoles {
 
 	private Benevoles construireBenevoles(ResultSet rs, boolean flagComplet) throws SQLException {
 		Benevoles benevole = new Benevoles();
-		benevole.setId(rs.getObject("id_utilisateur", Integer.class));
+		benevole.setId(rs.getObject("id_benevole", Integer.class));
 		benevole.setNom(rs.getObject("nom", String.class));
 		benevole.setPrenom(rs.getObject("prenom", String.class));
 		benevole.setPermis(rs.getObject("permis", Boolean.class));

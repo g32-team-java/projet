@@ -6,9 +6,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import projet.commun.IMapper;
@@ -52,8 +49,8 @@ public class ModelBenevoles {
  		
   	}
  	
- 	public void actualiseLister() {
- 		Benevoles LB = daoBenevoles.lister();
+ 	public void actualiseLister(Benevoles item) {
+ 		Benevoles LB = daoBenevoles.lister(item.getId());
  		String id = LB.getId().toString();
  		String nom = LB.getNom();
  		String prenom = LB.getPrenom();
@@ -84,14 +81,13 @@ public class ModelBenevoles {
  	}
  	
  	public void preparerLister(Benevoles item) {
- 		mapper.update(courant, daoBenevoles.lister());
+ 		mapper.update(courant, daoBenevoles.lister(item.getId()));
  	}
  	 	
  	@PostConstruct
 	public void init()
 	{
 		actualiserListe();
-		actualiseLister();
 	}
  	
 }
