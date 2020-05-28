@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Benevoles;
-import projet.data.Participants;
+import projet.view.benevoles.ModelBenevoles;
 
 
 public class DaoBenevoles {
@@ -48,7 +48,7 @@ public class DaoBenevoles {
 		}
 	}
 
-	public List<Benevoles> lister() {
+	public Benevoles lister() {
 
 		Connection cn = null;
 		PreparedStatement stmt = null;
@@ -59,13 +59,13 @@ public class DaoBenevoles {
 			cn = dataSource.getConnection();
 			sql = "SELECT * FROM benevole WHERE id_benevole=1";
 			stmt = cn.prepareStatement(sql);
+			//stmt.setObject(1, idbenevole);
 			rs = stmt.executeQuery();
-
-			List<Benevoles> benevoles = new LinkedList<>();
+			Benevoles benevole=new Benevoles();
 			while (rs.next()) {
-				benevoles.add(construireBenevoles(rs, false));
+				benevole=construireBenevoles(rs, false);
 			}
-			return benevoles;
+			return benevole;
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -166,7 +166,7 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM participant WHERE id_participant = ?";
+			sql = "SELECT * FROM benevole WHERE id_benevole = ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setInt(1,idBenevoles);
 			rs = stmt.executeQuery();

@@ -28,6 +28,8 @@ public class ModelParticipant {
 
 	private final Participants courant = new Participants();
 	
+	
+	
 	@Inject
 	private IMapper			mapper;
 
@@ -43,7 +45,6 @@ public class ModelParticipant {
 		return courant;
 	}
 	
-
 	// Actualisations
 	public void actualiserListeInscrits() {
 		liste.setAll( daoParticipant.listerInscrits() );
@@ -53,8 +54,23 @@ public class ModelParticipant {
 		liste.setAll( daoParticipant.listerDemandes() );
 	}
 
+	// Préparations de modifs
+	
 	public void preparerModifier(Participants item) {
 		mapper.update( courant, daoParticipant.retrouverParticipant(item.getId()) );
 	}
+	public void preparerAjouter(Participants item) {
+		mapper.update(courant, new Participants());
+	}
 	
+	public void supprimer(Participants item) {
+		//Supprime un Participant
+		daoParticipant.supprimer(item.getId());
+		mapper.update(courant, UtilFX.findNext(liste, item));
+		
+	}
+	
+	
+	
+
 }
