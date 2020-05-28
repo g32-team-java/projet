@@ -103,7 +103,7 @@ public class DaoBenevoles {
 			stmt.executeUpdate();
 
 			supprimer(benevole.getId());
-			inserer(benevole);
+//			inserer(benevole);
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -131,7 +131,7 @@ public class DaoBenevoles {
 			UtilJdbc.close(stmt, cn);
 		}
 	}
-
+	/*
 	private void inserer(Benevoles benevole) {
 
 		Connection cn = null;
@@ -142,18 +142,19 @@ public class DaoBenevoles {
 			cn = dataSource.getConnection();
 			sql = "INSERT INTO concerner ( idbenevole, idpersonne ) VALUES( ?, ? ) ";
 			stmt = cn.prepareStatement(sql);
-/*
+
 			for (Personne personne : benevole.getPersonnes()) {
 				stmt.setObject(1, benevole.getId());
 				stmt.setObject(2, personne.getId());
 				stmt.executeUpdate();
 			}
-*/
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			UtilJdbc.close(stmt, cn);
 		}
 	}
+	*/
 
 }
