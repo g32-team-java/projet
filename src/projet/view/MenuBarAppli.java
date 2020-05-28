@@ -88,8 +88,6 @@ public class MenuBarAppli extends MenuBar {
 
 		
 		
-		
-		
 		// Configuration initiale du menu
 		configurerMenu( modelConnexion.getCompteActif() );
 

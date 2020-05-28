@@ -28,8 +28,6 @@ public class ModelParticipant {
 
 	private final Participants courant = new Participants();
 	
-	
-
 	@Inject
 	private IMapper			mapper;
 
@@ -45,7 +43,6 @@ public class ModelParticipant {
 		return courant;
 	}
 	
-	
 
 	// Actualisations
 	public void actualiserListeInscrits() {
@@ -60,5 +57,4 @@ public class ModelParticipant {
 		mapper.update( courant, daoParticipant.retrouverParticipant(item.getId()) );
 	}
 	
-
 }

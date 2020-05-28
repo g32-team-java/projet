@@ -132,12 +132,10 @@ public class DaoParticipant {
 	}
 	
 	
-
-
-
+	
 	private Participants construireParticipants(ResultSet rs, boolean flagComplet) throws SQLException {
 		Participants participant= new Participants();
-		participant.setId( rs.getObject( "id_utilisateur", Integer.class ) );
+		participant.setId( rs.getObject( "id_participant", Integer.class ) );
 		participant.setNom( rs.getObject( "nom", String.class ) );
 		participant.setPrenom( rs.getObject( "prenom", String.class ) );
 		participant.setTelephone( rs.getObject( "telephone", Integer.class ) );
