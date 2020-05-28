@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import jfox.javafx.view.IManagerGui;
@@ -18,7 +19,7 @@ public class ControllerDetailsBenevoles {
 @Inject
 private IManagerGui			managerGui;
 @Inject
-private ModelDetailsBenevoles modelDetailsBenevoles;
+private ModelBenevoles modelBenevoles;
 
 	@FXML
 	private Button Retour;
@@ -28,9 +29,9 @@ private ModelDetailsBenevoles modelDetailsBenevoles;
 	private Button Supprimer;
 	
 	@FXML
-	private RadioButton permis;
+	private CheckBox permis;
 	@FXML
-	private RadioButton majeur;
+	private CheckBox majeur;
 	
 	@FXML
 	private ListView<String> Details;
@@ -38,8 +39,8 @@ private ModelDetailsBenevoles modelDetailsBenevoles;
 	
 	@FXML
 	private void initialize() {
-		Details.setItems(modelDetailsBenevoles.getDetails());
-		List<Boolean> bools = modelDetailsBenevoles.getBools();
+		Details.setItems(modelBenevoles.getDetails());
+		List<Boolean> bools = modelBenevoles.getBools();
 		if(bools.get(0)) majeur.setSelected(true);
 		if(bools.get(1)) permis.setSelected(true);
 		Details.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {configurerBoutons();});

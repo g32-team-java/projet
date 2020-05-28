@@ -102,6 +102,26 @@ public class DaoParticipant {
 
 		return null;
 	}
+	
+	public void supprimer( int idParticipant ) {
+
+		Connection			cn 		= null;
+		PreparedStatement	stmt 	= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "DELETE FROM participant WHERE idparticipant = ? ";
+			stmt = cn.prepareStatement( sql );
+			stmt.setObject( 1, idParticipant );
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( stmt, cn );
+		}
+	}
 
 	public Participants retrouverParticipant(int idParticipant){
 
@@ -114,7 +134,7 @@ public class DaoParticipant {
 			cn = dataSource.getConnection();
 			sql = "SELECT * FROM participant WHERE id_participant = ?";
 			stmt = cn.prepareStatement( sql );
-			stmt.setInt(1,idParticipant);
+			stmt.setObject(1,idParticipant);
 			rs = stmt.executeQuery();
 
 			if(rs.next()) {
@@ -132,12 +152,10 @@ public class DaoParticipant {
 	}
 	
 	
-
-
-
+	
 	private Participants construireParticipants(ResultSet rs, boolean flagComplet) throws SQLException {
 		Participants participant= new Participants();
-		participant.setId( rs.getObject( "id_utilisateur", Integer.class ) );
+		participant.setId( rs.getObject( "id_participant", Integer.class ) );
 		participant.setNom( rs.getObject( "nom", String.class ) );
 		participant.setPrenom( rs.getObject( "prenom", String.class ) );
 		participant.setTelephone( rs.getObject( "telephone", Integer.class ) );
