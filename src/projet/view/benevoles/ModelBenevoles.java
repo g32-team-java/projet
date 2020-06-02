@@ -1,5 +1,6 @@
 package projet.view.benevoles;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,9 +9,12 @@ import javax.inject.Inject;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoBenevoles;
 import projet.data.Benevoles;
+import projet.data.Memo;
+import projet.view.systeme.ModelConfig;
 
 public class ModelBenevoles {
 
@@ -25,6 +29,8 @@ public class ModelBenevoles {
 	private IMapper			mapper;
     @Inject
 	private DaoBenevoles	daoBenevoles;
+    @Inject
+    private ModelConfig		modelConfig;
     
 // Getters
  	public ObservableList<Benevoles> getListe() {
@@ -90,4 +96,21 @@ public class ModelBenevoles {
 		actualiserListe();
 	}
  	
+	public void supprimer( Benevoles item ) {
+		
+		daoBenevoles.supprimer( item.getId() );
+		mapper.update( courant, UtilFX.findNext( liste, item ) );
+		
+		getFichierSchemaCourant().delete();
+	}
+	
+	// Méthodes auxiliaires
+	
+	public File getFichierSchemaCourant() {
+		String nomFichier = String.format( "%06d.jpg", courant.getId() );
+		File dossierSchemas = modelConfig.getDossierSchemas();
+		return new File( dossierSchemas, nomFichier );
+	}
+	
+	
 }

@@ -57,7 +57,7 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void supprimerBenevole() {
-		//DaoBenevoles.supprimer(?);
+		//DaoBenevoles.supprimer();
 	}
 	
 	private void configurerBoutons() {
