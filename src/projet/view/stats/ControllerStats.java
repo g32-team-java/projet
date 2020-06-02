@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import jfox.javafx.util.ConverterStringInteger;
@@ -20,9 +21,9 @@ public class ControllerStats {
 	@FXML
 	private Button b_Retour;
 	@FXML
-	private TextField tf_nbRepas;
+	private Label l_nbRepas;
 	@FXML
-	private TextField tf_nbCanoës;
+	private Label l_nbCanoës;
 
 	@Inject
 	private ModelStats	modelStats;
@@ -36,9 +37,8 @@ public class ControllerStats {
 		modelStats.actualiserNbCanoe();
 		modelStats.actualiserNbRepas();
 		Stats courant = modelStats.getCourant();
-		tf_nbCanoës.textProperty().bindBidirectional(courant.nbCanoeProperty(),new ConverterStringInteger() );
-		tf_nbRepas.textProperty().bindBidirectional(courant.nbRepasProperty(),new ConverterStringInteger() );
-		
+		l_nbCanoës.setText(""+courant.getNbCanoe());
+		l_nbRepas.setText(""+courant.getNbRepas());
 	}
 
 	@FXML
@@ -50,9 +50,4 @@ public class ControllerStats {
 	private void toRetour() {
 		managerGui.showView(EnumView.Participants);
 	}
-	
-	
-
-
-
 }

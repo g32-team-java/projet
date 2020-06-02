@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -37,8 +36,8 @@
             <Label text="Nombre de canoës" GridPane.rowIndex="1" />
             <Button fx:id="b_Accueil" mnemonicParsing="false" onAction="#toAccueil" text="Accueil" GridPane.rowIndex="2" />
             <Button fx:id="b_Retour" mnemonicParsing="false" onAction="#toRetour" text="Retour" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="tf_nbRepas" GridPane.columnIndex="1" />
-            <TextField fx:id="tf_nbCanoës" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="l_nbRepas" GridPane.columnIndex="1" />
+            <Label fx:id="l_nbCanoës" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>
