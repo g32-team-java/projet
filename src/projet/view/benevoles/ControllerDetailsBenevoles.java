@@ -51,7 +51,7 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void supprimerBenevole() {
-		modelBenevoles.supprimer();
+		//modelBenevoles.supprimer();
 	}
 	
 	private void configurerBoutons() {

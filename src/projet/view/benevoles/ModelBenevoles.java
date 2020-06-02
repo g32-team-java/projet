@@ -1,6 +1,5 @@
 package projet.view.benevoles;
 
-import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -13,7 +12,6 @@ import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoBenevoles;
 import projet.data.Benevoles;
-import projet.view.systeme.ModelConfig;
 
 public class ModelBenevoles {
 
@@ -23,13 +21,12 @@ public class ModelBenevoles {
 	private final Property<Boolean> permis = new SimpleObjectProperty<Boolean>();
 	private final Benevoles courant = new Benevoles();
 
+	
 // Autres champs
 	@Inject
 	private IMapper mapper;
 	@Inject
 	private DaoBenevoles daoBenevoles;
-	@Inject
-	private ModelConfig modelConfig;
 
 // Getters
 	public ObservableList<Benevoles> getListe() {
