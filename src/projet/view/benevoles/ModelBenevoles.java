@@ -3,10 +3,8 @@ package projet.view.benevoles;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -15,7 +13,6 @@ import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoBenevoles;
 import projet.data.Benevoles;
-import projet.data.Memo;
 import projet.view.systeme.ModelConfig;
 
 public class ModelBenevoles {
