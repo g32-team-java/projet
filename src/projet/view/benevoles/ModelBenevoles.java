@@ -19,10 +19,10 @@ public class ModelBenevoles {
 
 	private final ObservableList<Benevoles> liste = FXCollections.observableArrayList(); 
 	private final ObservableList<String> details = FXCollections.observableArrayList(); 
-	private final Benevoles courant = new Benevoles();
 	private final Property<Boolean> majeur = new SimpleObjectProperty<Boolean>();
 	private final Property<Boolean> permis = new SimpleObjectProperty<Boolean>();
-	
+	private final Benevoles courant = new Benevoles();
+
 	
 // Autres champs
     @Inject
@@ -96,10 +96,10 @@ public class ModelBenevoles {
 	}
  	
 	public void supprimer( Benevoles item ) {
-		
-		daoBenevoles.supprimer( item.getId() );
+		Benevoles benevole = daoBenevoles.lister(item.getId());
+		int idb = benevole.getId();
+		daoBenevoles.supprimer(idb);
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
-		
 		getFichierSchemaCourant().delete();
 	}
 	

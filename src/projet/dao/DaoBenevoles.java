@@ -91,7 +91,7 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE memo SET nom = ?, prenom = ?, permis = ?, majeur = ?, mail = ?, telephone = ?WHERE idbenevoles =  ?";
+			sql = "UPDATE benevole SET nom = ?, prenom = ?, permis = ?, majeur = ?, mail = ?, telephone = ?WHERE idbenevoles =  ?";
 			stmt = cn.prepareStatement(sql);
 			stmt.setObject(1, benevole.getNom());
 			stmt.setObject(2, benevole.getPrenom());
@@ -101,9 +101,6 @@ public class DaoBenevoles {
 			stmt.setObject(6, benevole.getTelephone());
 			stmt.setObject(7, benevole.getId());
 			stmt.executeUpdate();
-
-			supprimer(benevole.getId());
-//			inserer(benevole);
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -120,7 +117,7 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "DELETE FROM concerner WHERE idbenevole = ? ";
+			sql = "DELETE FROM benevole WHERE idbenevole = ? ";
 			stmt = cn.prepareStatement(sql);
 			stmt.setInt(1, idBenevoles);
 			stmt.executeUpdate();
@@ -131,31 +128,7 @@ public class DaoBenevoles {
 			UtilJdbc.close(stmt, cn);
 		}
 	}
-	/*
-	private void inserer(Benevoles benevole) {
-
-		Connection cn = null;
-		PreparedStatement stmt = null;
-		String sql;
-
-		try {
-			cn = dataSource.getConnection();
-			sql = "INSERT INTO concerner ( idbenevole, idpersonne ) VALUES( ?, ? ) ";
-			stmt = cn.prepareStatement(sql);
-
-			for (Personne personne : benevole.getPersonnes()) {
-				stmt.setObject(1, benevole.getId());
-				stmt.setObject(2, personne.getId());
-				stmt.executeUpdate();
-			}
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			UtilJdbc.close(stmt, cn);
-		}
-	}
-	*/
+	
 
 	public Benevoles retrouverBenevoles(int idBenevoles){
 

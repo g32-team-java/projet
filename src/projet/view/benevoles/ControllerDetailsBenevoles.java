@@ -46,12 +46,12 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void modifierBenevole() {
-		//DaoBenevoles.modifier(?);
+		//DaoBenevoles.modifier();
 	}
 	
 	@FXML
 	private void supprimerBenevole() {
-		//DaoBenevoles.supprimer();
+		modelBenevoles.supprimer();
 	}
 	
 	private void configurerBoutons() {
