@@ -67,7 +67,6 @@ public class ModelParticipant {
 		//Supprime un Participant
 		daoParticipant.supprimer(item.getId());
 		mapper.update(courant, UtilFX.findNext(liste, item));
-		
 	}
 	
 	
