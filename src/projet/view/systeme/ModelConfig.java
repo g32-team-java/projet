@@ -8,7 +8,7 @@ import java.util.Properties;
 import javax.annotation.PostConstruct;
 
 import jfox.commun.exception.ExceptionAnomaly;
-
+//PUSH POUR ERREUR MODELCONFIG
 
 public class ModelConfig {
 	
