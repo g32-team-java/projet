@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
-import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.view.EnumView;
 
