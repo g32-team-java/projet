@@ -60,7 +60,7 @@ INSERT INTO role (idcompte, role) VALUES
  
   ALTER TABLE club ALTER COLUMN id_club RESTART WITH 1;
   
-   INSERT INTO Participant (nom, prenom, date_naissance, telephone, adresse, cp, ville, certificat_ok, inscription_ok, id_club, id_utilisateur) VALUES
+   INSERT INTO Participant (prenom,nom, date_naissance, telephone, adresse, cp, ville, certificat_ok, inscription_ok, id_club, id_utilisateur) VALUES
  
  ('Jena','DUPOND', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'1','6'),
  ('Alfred','ALEX', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '2','7'),

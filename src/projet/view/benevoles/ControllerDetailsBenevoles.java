@@ -4,17 +4,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
+import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.view.EnumView;
-import projet.dao.DaoBenevoles;
-import projet.data.Benevoles;
-import projet.data.Personne;
 
 public class ControllerDetailsBenevoles {
 @Inject
@@ -37,18 +33,18 @@ private ModelBenevoles modelBenevoles;
 	@FXML
 	private ListView<String> Details;
 	
-	@FXML
-	private ListView<Benevoles>	listViewBenevoles;
 	
 	@FXML
 	private void initialize() {
 		Details.setItems(modelBenevoles.getDetails());
 		List<Boolean> bools = modelBenevoles.getBools();
-		if(bools.get(0)) majeur.setSelected(true);
+		if(bools.get(0)) majeur.setSelected(true); //ca plante ici
 		if(bools.get(1)) permis.setSelected(true);
 		Details.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {configurerBoutons();});
 		configurerBoutons();
 	}
+	
+	
 	
 	@FXML
 	private void toBenevoles() {
@@ -63,10 +59,6 @@ private ModelBenevoles modelBenevoles;
 	@FXML
 	private void supprimerBenevole() {
 		//DaoBenevoles.supprimer();
-		ObservableList<Benevoles> selectedItems = listViewBenevoles.getSelectionModel().getSelectedItems();
-		for ( int i = selectedItems.size() - 1; i >= 0; --i ) {
-			modelBenevoles.supprimer( selectedItems.get(i) );
-		}
 	}
 	
 	private void configurerBoutons() {

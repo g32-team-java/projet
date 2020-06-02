@@ -2,11 +2,6 @@ package projet.view.benevoles;
 
 import javax.inject.Inject;
 
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -15,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevoles;
-import projet.data.Participants;
 import projet.view.EnumView;
 
 public class ControllerBenevoles {
@@ -39,6 +33,8 @@ private ModelBenevoles		modelBenevoles;
 	}
 	@FXML
 	private void toDetails() {
+		Benevoles item =  ListeBenevoles.getSelectionModel().getSelectedItem();
+		modelBenevoles.actualiseLister(item);
 		managerGui.showView( EnumView.DetailsBenevoles);
 	}
 	
