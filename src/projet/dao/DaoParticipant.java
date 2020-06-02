@@ -132,13 +132,14 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "SELECT * FROM participant WHERE id_participant = ?";
+			sql = "SELECT id_participant, nom, prenom,  telephone, adresse, cp, ville, certificat_ok, inscription_ok, mail as mail FROM participant pa, utilisateur ut WHERE pa.id_utilisateur = ut.id_utilisateur AND id_participant = ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject(1,idParticipant);
 			rs = stmt.executeQuery();
 
+
 			if(rs.next()) {
-				return construireParticipants(rs, true);
+				return construireParticipants2(rs, true);
 			}else {
 				return null;
 			}
@@ -150,9 +151,6 @@ public class DaoParticipant {
 		}
 
 	}
-	
-	
-	
 	private Participants construireParticipants(ResultSet rs, boolean flagComplet) throws SQLException {
 		Participants participant= new Participants();
 		participant.setId( rs.getObject( "id_participant", Integer.class ) );
@@ -164,6 +162,21 @@ public class DaoParticipant {
 		participant.setVille( rs.getObject( "ville", String.class ) );
 		participant.setCertificat( rs.getObject( "certificat_ok", Boolean.class ) );
 		participant.setInscription( rs.getObject( "inscription_ok", Boolean.class ) );
+		return participant;
+	}
+	
+	private Participants construireParticipants2(ResultSet rs, boolean flagComplet) throws SQLException {
+		Participants participant= new Participants();
+		participant.setId( rs.getObject( "id_participant", Integer.class ) );
+		participant.setNom( rs.getObject( "nom", String.class ) );
+		participant.setPrenom( rs.getObject( "prenom", String.class ) );
+		participant.setTelephone( rs.getObject( "telephone", Integer.class ) );
+		participant.setAdresse( rs.getObject( "adresse", String.class ) );
+		participant.setCp( rs.getObject( "cp", Integer.class ) );
+		participant.setVille( rs.getObject( "ville", String.class ) );
+		participant.setCertificat( rs.getObject( "certificat_ok", Boolean.class ) );
+		participant.setInscription( rs.getObject( "inscription_ok", Boolean.class ) );
+		participant.setMail( rs.getObject( "mail", String.class));
 		return participant;
 	}
 }

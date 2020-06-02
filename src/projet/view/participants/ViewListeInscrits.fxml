@@ -24,6 +24,7 @@
          <children>
             <Button fx:id="b_Accueil" mnemonicParsing="false" onAction="#toAccueil" prefWidth="72.0" text="Accueil" />
             <Button fx:id="b_ListeDemande" mnemonicParsing="false" onAction="#toListeDemande" prefHeight="52.0" prefWidth="73.0" text="Liste des demandes" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="b_Afficher" mnemonicParsing="false" onAction="#doAfficher" prefWidth="73.0" text="Afficher" textAlignment="CENTER" />
          </children>
       </VBox>
    </left>

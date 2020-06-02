@@ -15,12 +15,13 @@ public class Participants {
 	private StringProperty ville = new SimpleStringProperty();
 	private Property<Boolean> certificat = new SimpleObjectProperty<>();
 	private Property<Boolean> inscription = new SimpleObjectProperty<>();
+	private StringProperty mail = new SimpleStringProperty();
 
 	public Participants (){
 		
 	}
 	
-	public Participants (int id, String nom, String prenom, int telephone, String adresse, int cp, String ville, boolean certificat,  boolean inscription){
+	public Participants (int id, String nom, String prenom, int telephone, String adresse, int cp, String ville, boolean certificat,  boolean inscription, String mail){
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
@@ -30,6 +31,8 @@ public class Participants {
 		setVille(ville);
 		setCertificat(certificat);
 		setInscription(inscription);
+		setMail(mail);
+		
 		
 	}
 	
@@ -167,9 +170,19 @@ public class Participants {
 	public final void setInscription(final Boolean inscription) {
 		this.inscriptionProperty().setValue(inscription);
 	}
+
+	public final StringProperty mailProperty() {
+		return this.mail;
+	}
 	
 
+	public final String getMail() {
+		return this.mailProperty().get();
+	}
 	
-	
+
+	public final void setMail(final String mail) {
+		this.mailProperty().set(mail);
+	}
 	
 }
