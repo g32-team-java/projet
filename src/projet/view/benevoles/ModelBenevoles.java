@@ -7,6 +7,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jfox.javafx.util.UtilFX;
@@ -20,8 +22,9 @@ public class ModelBenevoles {
 
 	private final ObservableList<Benevoles> liste = FXCollections.observableArrayList(); 
 	private final ObservableList<String> details = FXCollections.observableArrayList(); 
-	private final ObservableList<Boolean> bools=FXCollections.observableArrayList();
 	private final Benevoles courant = new Benevoles();
+	private final Property<Boolean> majeur = new SimpleObjectProperty<Boolean>();
+	private final Property<Boolean> permis = new SimpleObjectProperty<Boolean>();
 	
 	
 // Autres champs
@@ -41,13 +44,17 @@ public class ModelBenevoles {
  		return details;
  	}
  	
- 	public ObservableList<Boolean> getBools(){
- 		return bools;
- 	}
- 	
  	public Benevoles getCourant() {
  		return courant;
  	}
+ 	
+ 	public Property<Boolean> majeurProperty() {
+		return majeur;
+	}
+ 	
+ 	public Property<Boolean> permisProperty() {
+		return permis;
+	}
  	
 // Actualisations
  	public void actualiserListe() {
@@ -63,8 +70,8 @@ public class ModelBenevoles {
  		String mail = LB.getMail();
  		String tel = LB.getTelephone().toString();
 
- 		Boolean permis = LB.getPermis();
- 		Boolean majeur = LB.getMajeur();
+ 		permis.setValue(LB.getPermis());
+ 		majeur.setValue(LB.getMajeur());
  		
  		List<String> liste = new LinkedList<>();
  		liste.add(id);
@@ -73,12 +80,7 @@ public class ModelBenevoles {
  		liste.add(mail);
  		liste.add(tel);
  		
- 		List<Boolean> liste2 = new LinkedList<>();
- 		liste2.add(majeur);
- 		liste2.add(permis);
- 		
  		details.setAll(liste);
- 		bools.setAll(liste2);
  				
   	}
  	

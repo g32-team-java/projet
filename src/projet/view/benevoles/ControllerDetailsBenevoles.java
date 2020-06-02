@@ -36,15 +36,12 @@ private ModelBenevoles modelBenevoles;
 	@FXML
 	private void initialize() {
 		Details.setItems(modelBenevoles.getDetails());
-		List<Boolean> bools = modelBenevoles.getBools();
-		if(bools.get(0)) majeur.setSelected(true); //ca plante ici
-		if(bools.get(1)) permis.setSelected(true);
+		majeur.selectedProperty().bind(modelBenevoles.majeurProperty());
+		permis.selectedProperty().bind(modelBenevoles.permisProperty());
 		Details.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {configurerBoutons();});
 		configurerBoutons();
 	}
-	
-	
-	
+
 	@FXML
 	private void toBenevoles() {
 		managerGui.showView(EnumView.Benevoles);
