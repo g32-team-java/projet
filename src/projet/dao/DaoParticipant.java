@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
+import projet.data.Categorie;
 import projet.data.Participants;
 
 
@@ -103,7 +104,7 @@ public class DaoParticipant {
 		return null;
 	}
 	
-	public void supprimer( int idParticipant ) {
+	public void supprimer( Participants participant ) {
 
 		Connection			cn 		= null;
 		PreparedStatement	stmt 	= null;
@@ -111,9 +112,29 @@ public class DaoParticipant {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "DELETE FROM participant WHERE idparticipant = ? ";
+			sql = "DELETE FROM participant WHERE id_participant = ? ";
 			stmt = cn.prepareStatement( sql );
-			stmt.setObject( 1, idParticipant );
+			stmt.setObject( 1, participant.getId() );
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close( stmt, cn );
+		}
+	}
+	
+	public void modifier( Participants participant ) {
+
+		Connection			cn		= null;
+		PreparedStatement	stmt	= null;
+		String				sql;
+
+		try {
+			cn = dataSource.getConnection();
+			sql = "UPDATE participant SET inscription_ok = TRUE WHERE id_participant =  ?";
+			stmt = cn.prepareStatement( sql );
+			stmt.setObject( 1, participant.getId() );
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {

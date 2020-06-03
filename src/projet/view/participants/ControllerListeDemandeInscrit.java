@@ -66,7 +66,6 @@ public class ControllerListeDemandeInscrit {
 		if ( item == null ) {
 			managerGui.showDialogError( "Aucun élément n'est sélectionné dans la liste.");
 		} else {
-			modelParticipant.preparerModifier(item);
 			managerGui.showView( EnumView.DemandeForm );
 		}
 	}

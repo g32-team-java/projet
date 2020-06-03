@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.util.UtilFX;
@@ -38,6 +40,8 @@ public class ControllerDemande {
 	private TextField tf_telephone;
 	@FXML
 	private TextField tf_mail;
+	@FXML
+	private ListView<Participants> lv_ListeDemande;
 
 	@Inject
 	private IManagerGui		managerGui;
@@ -64,20 +68,16 @@ public class ControllerDemande {
 	private void toListeDemandeInscritpion() {
 		managerGui.showView( EnumView.ListeDemandeInscrit);
 	}
+	
 	@FXML
 	private void addToBase() {
 		// Ajoute à la BD le participant en passant ça variable participant/valider à true
-		modelParticipant.preparerAjouter(modelParticipant.getCourant());
-		managerGui.showView( EnumView.ListeDemandeInscrit);
-		// On est bon mais maintenant il faut que l'individu soit ajouter à la liste des inscrits
+		modelParticipant.preparerAjoutBase(modelParticipant.getCourant());
 	}
 	@FXML
 	private void removeFromBase() {
 		// Remove l'individu de la BD
 		modelParticipant.supprimer(modelParticipant.getCourant());
-		managerGui.showView( EnumView.ListeDemandeInscrit);
-		
 	}
-	
 
 }

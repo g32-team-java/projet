@@ -57,7 +57,11 @@ public class ModelParticipant {
 	// Préparations de modifs
 	
 	public void preparerModifier(Participants item) {
-		mapper.update( courant, daoParticipant.retrouverParticipant(item.getId()) );
+		mapper.update(courant, daoParticipant.retrouverParticipant(item.getId()));
+	}
+	
+	public void preparerAjoutBase(Participants item) {
+		daoParticipant.modifier(item);
 	}
 	public void preparerAjouter(Participants item) {
 		mapper.update(courant, new Participants());
@@ -65,7 +69,7 @@ public class ModelParticipant {
 	
 	public void supprimer(Participants item) {
 		//Supprime un Participant
-		daoParticipant.supprimer(item.getId());
+		daoParticipant.supprimer(item);
 		mapper.update(courant, UtilFX.findNext(liste, item));
 	}
 	
