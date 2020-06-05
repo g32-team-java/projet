@@ -77,8 +77,9 @@ private ModelBenevoles modelBenevoles;
 			Telephone.setDisable(true);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
-			//insérer peut etre des if pour la conformité des champs
-			//DaoBenevoles.modifier();
+			modelBenevoles.getCourant().setMail(Mail.getText());
+			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
+			modelBenevoles.modifier(modelBenevoles.getCourant());
 		}
 		
 	}
@@ -95,10 +96,7 @@ private ModelBenevoles modelBenevoles;
 			Supprimer.setText("Supprimer");
 		}
 		else {
-//		if ( managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" ) ) {
-//            ModelBenevoles.supprimer( Details.getSelectionModel().getSelectedItem() );
-//            refresh();
-//        }
+			modelBenevoles.supprimer(modelBenevoles.getCourant());
 		}
 	}
 }

@@ -58,5 +58,10 @@ public class ModelBenevoles {
 		daoBenevoles.supprimer(item.getId());
 		mapper.update(courant, UtilFX.findNext(liste, item));
 	}
+	
+	public void modifier(Benevoles item) {
+		daoBenevoles.modifier(item);
+		mapper.update(courant, UtilFX.findNext(liste, item));
+	}
 
 }
