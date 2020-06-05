@@ -60,15 +60,15 @@
                   <Insets right="150.0" />
                </GridPane.margin></TextField>
             <TextField fx:id="Mail" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="Modifier" mnemonicParsing="false" onAction="#addToBase" text="Modifier" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="Modifier" mnemonicParsing="false" onAction="#modifierBenevole" text="Modifier" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="200.0" />
                </GridPane.margin></Button>
-            <Button fx:id="Supprimer" mnemonicParsing="false" onAction="#removeFromBase" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="Supprimer" mnemonicParsing="false" onAction="#supprimerBenevole" text="Supprimer" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin></Button>
-            <Button fx:id="Retour" mnemonicParsing="false" onAction="#toListeDemandeInscritpion" text="Retour" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="Retour" mnemonicParsing="false" onAction="#toBenevoles" text="Retour" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <CheckBox fx:id="majeur" mnemonicParsing="false" text="majeur" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <padding>
                   <Insets left="10.0" />
