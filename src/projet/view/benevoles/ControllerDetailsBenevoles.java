@@ -81,7 +81,6 @@ private ModelBenevoles modelBenevoles;
 			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
 			modelBenevoles.modifier(modelBenevoles.getCourant());
 		}
-		
 	}
 	
 	@FXML

@@ -91,7 +91,7 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE benevole SET mail = ?, telephone = ?WHERE idbenevoles =  ?";
+			sql = "UPDATE benevole SET mail = ?, telephone = ?WHERE id_benevoles =  ?";
 			stmt = cn.prepareStatement(sql);
 			stmt.setObject(1, benevole.getMail());
 			stmt.setObject(2, benevole.getTelephone());
