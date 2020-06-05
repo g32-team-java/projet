@@ -34,6 +34,7 @@ public class ModelBenevoles {
 		return courant;
 	}
 
+	
 // Actualisations
 	public void actualiserListe() {
 		liste.setAll(daoBenevoles.listerTout());

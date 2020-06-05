@@ -46,20 +46,20 @@
                <GridPane.margin>
                   <Insets left="230.0" />
                </GridPane.margin></Label>
-            <TextField fx:id="Nom" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="Nom" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="150.0" />
                </GridPane.margin></TextField>
-            <TextField fx:id="Id" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="35.0" GridPane.columnIndex="1">
+            <TextField fx:id="Id" disable="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="35.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="200.0" />
                </GridPane.margin></TextField>
-            <TextField fx:id="Prenom" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="Telephone" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="Prenom" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="Telephone" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="150.0" />
                </GridPane.margin></TextField>
-            <TextField fx:id="Mail" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="Mail" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button fx:id="Modifier" mnemonicParsing="false" onAction="#modifierBenevole" text="Modifier" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="200.0" />
@@ -69,12 +69,12 @@
                   <Insets left="10.0" />
                </GridPane.margin></Button>
             <Button fx:id="Retour" mnemonicParsing="false" onAction="#toBenevoles" text="Retour" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <CheckBox fx:id="majeur" mnemonicParsing="false" text="majeur" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <CheckBox fx:id="majeur" disable="true" mnemonicParsing="false" text="majeur" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </CheckBox>
-            <CheckBox fx:id="permis" mnemonicParsing="false" text="permis" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <CheckBox fx:id="permis" disable="true" mnemonicParsing="false" text="permis" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <padding>
                   <Insets left="10.0" />
                </padding>
