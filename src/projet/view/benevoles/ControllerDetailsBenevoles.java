@@ -18,6 +18,8 @@ private IManagerGui			managerGui;
 @Inject
 private ModelBenevoles modelBenevoles;
 
+	boolean modif=false;
+
 	@FXML
 	private Button Retour;
 	@FXML
@@ -62,25 +64,41 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void modifierBenevole() {
-		//DaoBenevoles.modifier();
+		if(!modif) {
+			modif=true;
+			Mail.setDisable(false);
+			Telephone.setDisable(false);
+			Modifier.setText("Valider");
+			Supprimer.setText("Annuler");
+		}
+		else {
+			modif=false;
+			Mail.setDisable(true);
+			Telephone.setDisable(true);
+			Modifier.setText("Modifier");
+			Supprimer.setText("Supprimer");
+			//insérer peut etre des if pour la conformité des champs
+			//DaoBenevoles.modifier();
+		}
+		
 	}
 	
 	@FXML
 	private void supprimerBenevole() {
+		if(modif) {
+			modif=false;
+			Nom.setDisable(true);
+			Prenom.setDisable(true);
+			Mail.setDisable(true);
+			Telephone.setDisable(true);
+			Modifier.setText("Modifier");
+			Supprimer.setText("Supprimer");
+		}
+		else {
 //		if ( managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" ) ) {
 //            ModelBenevoles.supprimer( Details.getSelectionModel().getSelectedItem() );
 //            refresh();
 //        }
-	}
-	
-	private void configurerBoutons() {
-		
-//    	if( Details.getSelectionModel().getSelectedItems().isEmpty() ) {
-//			Modifier.setDisable(true);
-//			Supprimer.setDisable(true);
-//		} else {
-//			Modifier.setDisable(false);
-//			Supprimer.setDisable(false);
-//		}
+		}
 	}
 }
