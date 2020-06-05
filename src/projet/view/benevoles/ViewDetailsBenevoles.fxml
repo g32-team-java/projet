@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.benevoles.ControllerDetailsBenevoles">
    <children>
-      <Label layoutX="122.0" layoutY="29.0" text="Demande d'inscription" textFill="#217cdd">
+      <Label layoutX="122.0" layoutY="29.0" text="Détails Bénévoles" textFill="#217cdd">
          <font>
             <Font size="36.0" />
          </font>
