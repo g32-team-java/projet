@@ -16,9 +16,6 @@ import projet.data.Benevoles;
 public class ModelBenevoles {
 
 	private final ObservableList<Benevoles> liste = FXCollections.observableArrayList();
-	private final ObservableList<String> details = FXCollections.observableArrayList();
-	private final Property<Boolean> majeur = new SimpleObjectProperty<Boolean>();
-	private final Property<Boolean> permis = new SimpleObjectProperty<Boolean>();
 	private final Benevoles courant = new Benevoles();
 
 	
@@ -33,47 +30,13 @@ public class ModelBenevoles {
 		return liste;
 	}
 
-	public ObservableList<String> getDetails() {
-		return details;
-	}
-
 	public Benevoles getCourant() {
 		return courant;
-	}
-
-	public Property<Boolean> majeurProperty() {
-		return majeur;
-	}
-
-	public Property<Boolean> permisProperty() {
-		return permis;
 	}
 
 // Actualisations
 	public void actualiserListe() {
 		liste.setAll(daoBenevoles.listerTout());
-
-	}
-
-	public void actualiseLister(Benevoles item) {
-		Benevoles LB = daoBenevoles.lister(item.getId());
-		String id = LB.getId().toString();
-		String nom = LB.getNom();
-		String prenom = LB.getPrenom();
-		String mail = LB.getMail();
-		String tel = LB.getTelephone().toString();
-
-		permis.setValue(LB.getPermis());
-		majeur.setValue(LB.getMajeur());
-
-		List<String> liste = new LinkedList<>();
-		liste.add(id);
-		liste.add(nom);
-		liste.add(prenom);
-		liste.add(mail);
-		liste.add(tel);
-
-		details.setAll(liste);
 
 	}
 

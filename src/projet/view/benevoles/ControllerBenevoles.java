@@ -34,7 +34,6 @@ private ModelBenevoles		modelBenevoles;
 	@FXML
 	private void toDetails() {
 		Benevoles item =  ListeBenevoles.getSelectionModel().getSelectedItem();
-		modelBenevoles.actualiseLister(item);
 		managerGui.showView( EnumView.DetailsBenevoles);
 	}
 	
