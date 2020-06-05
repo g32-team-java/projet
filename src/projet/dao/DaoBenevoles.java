@@ -91,15 +91,11 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE benevole SET nom = ?, prenom = ?, permis = ?, majeur = ?, mail = ?, telephone = ?WHERE idbenevoles =  ?";
+			sql = "UPDATE benevole SET mail = ?, telephone = ?WHERE idbenevoles =  ?";
 			stmt = cn.prepareStatement(sql);
-			stmt.setObject(1, benevole.getNom());
-			stmt.setObject(2, benevole.getPrenom());
-			stmt.setObject(3, benevole.getPermis());
-			stmt.setObject(4, benevole.getMajeur());
-			stmt.setObject(5, benevole.getMail());
-			stmt.setObject(6, benevole.getTelephone());
-			stmt.setObject(7, benevole.getId());
+			stmt.setObject(1, benevole.getMail());
+			stmt.setObject(2, benevole.getTelephone());
+			stmt.setObject(3, benevole.getId());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -114,10 +110,23 @@ public class DaoBenevoles {
 		Connection cn = null;
 		PreparedStatement stmt = null;
 		String sql;
-
+		
 		try {
 			cn = dataSource.getConnection();
-			sql = "DELETE FROM benevole WHERE idbenevole = ? ";
+			sql = "DELETE FROM avoir WHERE id_benevole = ? ";
+			stmt = cn.prepareStatement(sql);
+			stmt.setObject(1, idBenevole);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close(stmt, cn);
+		}
+		
+		try {
+			cn = dataSource.getConnection();
+			sql = "DELETE FROM benevole WHERE id_benevole = ? ";
 			stmt = cn.prepareStatement(sql);
 			stmt.setObject(1, idBenevole);
 			stmt.executeUpdate();

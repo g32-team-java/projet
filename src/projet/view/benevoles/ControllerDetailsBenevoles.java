@@ -64,6 +64,7 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void modifierBenevole() {
+		
 		if(!modif) {
 			modif=true;
 			Mail.setDisable(false);
@@ -77,8 +78,9 @@ private ModelBenevoles modelBenevoles;
 			Telephone.setDisable(true);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
-			//insérer peut etre des if pour la conformité des champs
-			//DaoBenevoles.modifier();
+			modelBenevoles.getCourant().setMail(Mail.getText());
+			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
+			modelBenevoles.modifier(modelBenevoles.getCourant());
 		}
 		
 	}
@@ -87,18 +89,14 @@ private ModelBenevoles modelBenevoles;
 	private void supprimerBenevole() {
 		if(modif) {
 			modif=false;
-			Nom.setDisable(true);
-			Prenom.setDisable(true);
 			Mail.setDisable(true);
 			Telephone.setDisable(true);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
 		}
 		else {
-//		if ( managerGui.showDialogConfirm( "Confirmez-vous la suppresion ?" ) ) {
-//            ModelBenevoles.supprimer( Details.getSelectionModel().getSelectedItem() );
-//            refresh();
-//        }
+			modelBenevoles.supprimer(modelBenevoles.getCourant());
+			
 		}
 	}
 }
