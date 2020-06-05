@@ -40,9 +40,7 @@ private ModelBenevoles modelBenevoles;
 	private TextField Prenom;
 	@FXML
 	private TextField Telephone;
-	@FXML
-	private TextField Mail;
-	
+
 	@FXML
 	private void initialize() {
 		Benevoles courant = modelBenevoles.getCourant();
@@ -51,7 +49,6 @@ private ModelBenevoles modelBenevoles;
 		Nom.textProperty().bindBidirectional(courant.nomProperty());
 		Prenom.textProperty().bindBidirectional(courant.prenomProperty());
 		Telephone.textProperty().bindBidirectional(courant.telephoneProperty(), new ConverterStringInteger() );
-		Mail.textProperty().bindBidirectional(courant.mailProperty());
 	
 		majeur.selectedProperty().bind(courant.majeurProperty());
 		permis.selectedProperty().bind(courant.permisProperty());
@@ -66,18 +63,15 @@ private ModelBenevoles modelBenevoles;
 	private void modifierBenevole() {
 		if(!modif) {					//passe en mode modification
 			modif=true;
-			Mail.setDisable(false);
 			Telephone.setDisable(false);
 			Modifier.setText("Valider");
 			Supprimer.setText("Annuler");
 		}
 		else {
 			modif=false;				//valide la modification
-			Mail.setDisable(true);
 			Telephone.setDisable(true);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
-			modelBenevoles.getCourant().setMail(Mail.getText());
 			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
 			modelBenevoles.modifier(modelBenevoles.getCourant());
 		}
@@ -89,7 +83,6 @@ private ModelBenevoles modelBenevoles;
 			modif=false;
 			Nom.setDisable(true);
 			Prenom.setDisable(true);
-			Mail.setDisable(true);
 			Telephone.setDisable(true);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
