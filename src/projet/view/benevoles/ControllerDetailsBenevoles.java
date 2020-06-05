@@ -64,7 +64,7 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void modifierBenevole() {
-		if(!modif) {
+		if(!modif) {					//passe en mode modification
 			modif=true;
 			Mail.setDisable(false);
 			Telephone.setDisable(false);
@@ -72,7 +72,7 @@ private ModelBenevoles modelBenevoles;
 			Supprimer.setText("Annuler");
 		}
 		else {
-			modif=false;
+			modif=false;				//valide la modification
 			Mail.setDisable(true);
 			Telephone.setDisable(true);
 			Modifier.setText("Modifier");
@@ -85,7 +85,7 @@ private ModelBenevoles modelBenevoles;
 	
 	@FXML
 	private void supprimerBenevole() {
-		if(modif) {
+		if(modif) {						//annule la modification
 			modif=false;
 			Nom.setDisable(true);
 			Prenom.setDisable(true);
