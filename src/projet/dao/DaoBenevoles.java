@@ -109,7 +109,7 @@ public class DaoBenevoles {
 		}
 	}
 
-	public void supprimer(int idBenevoles) {
+	public void supprimer(int idBenevole) {
 
 		Connection cn = null;
 		PreparedStatement stmt = null;
@@ -119,7 +119,7 @@ public class DaoBenevoles {
 			cn = dataSource.getConnection();
 			sql = "DELETE FROM benevole WHERE idbenevole = ? ";
 			stmt = cn.prepareStatement(sql);
-			stmt.setInt(1, idBenevoles);
+			stmt.setObject(1, idBenevole);
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {

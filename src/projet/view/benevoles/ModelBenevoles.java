@@ -56,25 +56,7 @@ public class ModelBenevoles {
 	}
 
 	public void actualiseLister(Benevoles item) {
-		Benevoles LB = daoBenevoles.lister(item.getId());
-		String id = LB.getId().toString();
-		String nom = LB.getNom();
-		String prenom = LB.getPrenom();
-		String mail = LB.getMail();
-		String tel = LB.getTelephone().toString();
-
-		permis.setValue(LB.getPermis());
-		majeur.setValue(LB.getMajeur());
-
-		List<String> liste = new LinkedList<>();
-		liste.add(id);
-		liste.add(nom);
-		liste.add(prenom);
-		liste.add(mail);
-		liste.add(tel);
-
-		details.setAll(liste);
-
+		
 	}
 
 	public void preparerModifier(Benevoles item) {
