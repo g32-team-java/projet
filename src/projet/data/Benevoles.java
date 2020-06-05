@@ -12,21 +12,19 @@ public class Benevoles {
 	private final StringProperty prenom = new SimpleStringProperty();
 	private final Property<Boolean> permis = new SimpleObjectProperty<>();
 	private final Property<Boolean> majeur = new SimpleObjectProperty<>();
-	private final StringProperty mail = new SimpleStringProperty();
 	private final Property<Integer> telephone = new SimpleObjectProperty<>();	
 
 
 	public Benevoles() {
 	}
 
-	public Benevoles(int id, String nom, String prenom, boolean permis, boolean majeur, String mail, int telephone) {
+	public Benevoles(int id, String nom, String prenom, boolean permis, boolean majeur, int telephone) {
 
 		setId(id);
 		setNom(nom);
 		setPrenom(prenom);
 		setPermis(permis);
 		setMajeur(majeur);
-		setMail(mail);
 		setTelephone(telephone);	
 	}
 
@@ -108,21 +106,6 @@ public class Benevoles {
 
 	public final void setMajeur(final Boolean majeur) {
 		this.majeurProperty().setValue(majeur);
-	}
-
-
-	public final StringProperty mailProperty() {
-		return this.mail;
-	}
-
-
-	public final String getMail() {
-		return this.mailProperty().get();
-	}
-
-
-	public final void setMail(final String mail) {
-		this.mailProperty().set(mail);
 	}
 
 
