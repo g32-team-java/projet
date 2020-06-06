@@ -63,5 +63,8 @@ public class ModelBenevoles {
 		daoBenevoles.modifier(item);
 		mapper.update(courant, UtilFX.findNext(liste, item));
 	}
-
+	
+	public void infoActualiserBenevoles(Benevoles item) {
+		mapper.update(courant, daoBenevoles.retrouverBenevoles(item.getId()));
+	}
 }

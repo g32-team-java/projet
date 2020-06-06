@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import jfox.javafx.util.ConverterStringInteger;
+import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevoles;
 import projet.view.EnumView;
@@ -40,6 +41,7 @@ private ModelBenevoles modelBenevoles;
 	private TextField Prenom;
 	@FXML
 	private TextField Telephone;
+	
 
 	@FXML
 	private void initialize() {
@@ -74,9 +76,14 @@ private ModelBenevoles modelBenevoles;
 			Supprimer.setText("Supprimer");
 			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
 			modelBenevoles.modifier(modelBenevoles.getCourant());
+			managerGui.showView(EnumView.DetailsBenevoles);
 		}
 	}
 	
+	public void refresh() {
+		modelBenevoles.infoActualiserBenevoles(modelBenevoles.getCourant());
+		
+	}
 	@FXML
 	private void supprimerBenevole() {
 		if(modif) {						//annule la modification
@@ -90,5 +97,6 @@ private ModelBenevoles modelBenevoles;
 		else {
 			modelBenevoles.supprimer(modelBenevoles.getCourant());
 		}
+		managerGui.showView(EnumView.Benevoles);
 	}
 }

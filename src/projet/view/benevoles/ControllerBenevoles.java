@@ -18,6 +18,7 @@ private IManagerGui			managerGui;
 @Inject
 private ModelBenevoles		modelBenevoles;
 
+
 	@FXML
 	private Button Accueil;
 	@FXML
@@ -37,8 +38,6 @@ private ModelBenevoles		modelBenevoles;
 		modelBenevoles.preparerLister(item);
 		managerGui.showView( EnumView.DetailsBenevoles);
 	}
-	
-	
 	@FXML
 	private void initialize() {
 		ListeBenevoles.setItems(modelBenevoles.getListe());

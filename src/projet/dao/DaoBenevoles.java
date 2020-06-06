@@ -93,8 +93,8 @@ public class DaoBenevoles {
 			cn = dataSource.getConnection();
 			sql = "UPDATE benevole SET telephone = ?WHERE id_benevole =  ?";
 			stmt = cn.prepareStatement(sql);
-			stmt.setObject(2, benevole.getTelephone());
-			stmt.setObject(3, benevole.getId());
+			stmt.setObject(1, benevole.getTelephone());
+			stmt.setObject(2, benevole.getId());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
