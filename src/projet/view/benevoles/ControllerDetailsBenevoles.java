@@ -34,24 +34,27 @@ private ModelBenevoles modelBenevoles;
 	private CheckBox majeur;
 
 	@FXML
-	private TextField Id;
-	@FXML
 	private TextField Nom;
 	@FXML
 	private TextField Prenom;
 	@FXML
 	private TextField Telephone;
+	@FXML
+	private TextField Poste;
+	@FXML
+	private TextField Mail;
 	
 
 	@FXML
 	private void initialize() {
 		Benevoles courant = modelBenevoles.getCourant();
 		
-		Id.textProperty().bindBidirectional(courant.idProperty(), new ConverterStringInteger() );
 		Nom.textProperty().bindBidirectional(courant.nomProperty());
 		Prenom.textProperty().bindBidirectional(courant.prenomProperty());
 		Telephone.textProperty().bindBidirectional(courant.telephoneProperty(), new ConverterStringInteger() );
-	
+		Poste.textProperty().bindBidirectional(courant.posteProperty());
+		Mail.textProperty().bindBidirectional(courant.mailProperty());
+		
 		majeur.selectedProperty().bind(courant.majeurProperty());
 		permis.selectedProperty().bind(courant.permisProperty());
 	}
@@ -66,12 +69,14 @@ private ModelBenevoles modelBenevoles;
 		if(!modif) {					//passe en mode modification
 			modif=true;
 			Telephone.setDisable(false);
+			Retour.setDisable(true);
 			Modifier.setText("Valider");
 			Supprimer.setText("Annuler");
 		}
 		else {
 			modif=false;				//valide la modification
 			Telephone.setDisable(true);
+			Retour.setDisable(false);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
 			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
@@ -88,15 +93,15 @@ private ModelBenevoles modelBenevoles;
 	private void supprimerBenevole() {
 		if(modif) {						//annule la modification
 			modif=false;
-			Nom.setDisable(true);
-			Prenom.setDisable(true);
 			Telephone.setDisable(true);
+			Retour.setDisable(false);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
 		}
 		else {
 			modelBenevoles.supprimer(modelBenevoles.getCourant());
+			managerGui.showView(EnumView.Benevoles);
 		}
-		managerGui.showView(EnumView.Benevoles);
+		
 	}
 }

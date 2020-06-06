@@ -53,24 +53,56 @@ public class DaoBenevoles {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String sql;
-
+		Benevoles benevole=new Benevoles();
+		
 		try {
 			cn = dataSource.getConnection();
 			sql = "SELECT * FROM benevole WHERE id_benevole = ?";
 			stmt = cn.prepareStatement(sql);
 			stmt.setObject(1, idbenevole);
 			rs = stmt.executeQuery();
-			Benevoles benevole=new Benevoles();
 			while (rs.next()) {
 				benevole=construireBenevoles(rs, false);
 			}
-			return benevole;
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			UtilJdbc.close(rs, stmt, cn);
 		}
+		
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT p.nom FROM Poste p INNER JOIN Avoir a ON p.id_poste=a.id_poste INNER JOIN benevole b ON b.id_benevole=a.id_benevole WHERE b.id_benevole = ?";
+			stmt = cn.prepareStatement(sql);
+			stmt.setObject(1, idbenevole);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				benevole.setPoste(rs.getObject("nom",String.class));
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close(rs, stmt, cn);
+		}
+		
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT mail FROM utilisateur u INNER JOIN benevole b ON u.id_utilisateur=b.id_utilisateur WHERE id_benevole= ?";
+			stmt = cn.prepareStatement(sql);
+			stmt.setObject(1, idbenevole);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				benevole.setMail(rs.getObject("mail",String.class));
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close(rs, stmt, cn);
+		}
+		return benevole;
 	}
 
 	private Benevoles construireBenevoles(ResultSet rs, boolean flagComplet) throws SQLException {
@@ -138,22 +170,22 @@ public class DaoBenevoles {
 	}
 	
 
-	public Benevoles retrouverBenevoles(int idBenevoles){
+	public Benevoles retrouverBenevoles(int idbenevole){
 
 		Connection			cn 		= null;
 		PreparedStatement	stmt 	= null;
 		ResultSet 			rs		= null;
 		String				sql;
-
+		Benevoles benevole;
 		try {
 			cn = dataSource.getConnection();
 			sql = "SELECT * FROM benevole WHERE id_benevole = ?";
 			stmt = cn.prepareStatement( sql );
-			stmt.setInt(1,idBenevoles);
+			stmt.setInt(1,idbenevole);
 			rs = stmt.executeQuery();
 
 			if(rs.next()) {
-				return construireBenevoles(rs, true);
+				benevole=construireBenevoles(rs, true);
 			}else {
 				return null;
 			}
@@ -163,6 +195,40 @@ public class DaoBenevoles {
 		} finally {
 			UtilJdbc.close( rs, stmt, cn );
 		}
+		
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT p.nom FROM Poste p INNER JOIN Avoir a ON p.id_poste=a.id_poste INNER JOIN benevole b ON b.id_benevole=a.id_benevole WHERE b.id_benevole = ?";
+			stmt = cn.prepareStatement(sql);
+			stmt.setObject(1, idbenevole);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				benevole.setPoste(rs.getObject("nom",String.class));
+			}
 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close(rs, stmt, cn);
+		}
+		
+		try {
+			cn = dataSource.getConnection();
+			sql = "SELECT mail FROM utilisateur u INNER JOIN benevole b ON u.id_utilisateur=b.id_utilisateur WHERE id_benevole= ?";
+			stmt = cn.prepareStatement(sql);
+			stmt.setObject(1, idbenevole);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				benevole.setMail(rs.getObject("mail",String.class));
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			UtilJdbc.close(rs, stmt, cn);
+		}
+		
+		return benevole;
 	}
+	
 }
