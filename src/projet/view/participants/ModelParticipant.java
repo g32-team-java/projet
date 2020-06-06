@@ -62,6 +62,7 @@ public class ModelParticipant {
 	
 	public void preparerAjoutBase(Participants item) {
 		daoParticipant.modifier(item);
+		mapper.update(courant, UtilFX.findNext(liste, item));
 	}
 	public void preparerAjouter(Participants item) {
 		mapper.update(courant, new Participants());

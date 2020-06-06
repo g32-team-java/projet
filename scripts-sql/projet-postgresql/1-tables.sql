@@ -135,9 +135,9 @@ CREATE TABLE Equipe(
 	id_raid                 INTEGER  NOT NULL  ,
 	CONSTRAINT Equipe_PK PRIMARY KEY (id_equipe)
 
-	,CONSTRAINT Equipe_Capitaine_FK FOREIGN KEY (id_capitaine) REFERENCES Participant(id_participant)
-	,CONSTRAINT Equipe_Equipier_FK FOREIGN KEY (id_equipier) REFERENCES Participant(id_participant)
-	,CONSTRAINT Equipe_Raid1_FK FOREIGN KEY (id_raid) REFERENCES Raid(id_raid)
+	,CONSTRAINT Equipe_Capitaine_FK FOREIGN KEY (id_capitaine) REFERENCES Participant(id_participant) ON DELETE CASCADE
+	,CONSTRAINT Equipe_Equipier_FK FOREIGN KEY (id_equipier) REFERENCES Participant(id_participant) ON DELETE CASCADE
+	,CONSTRAINT Equipe_Raid1_FK FOREIGN KEY (id_raid) REFERENCES Raid(id_raid) ON DELETE CASCADE
 	,CONSTRAINT Equipe_Capitaine_AK UNIQUE (id_capitaine)
 	,CONSTRAINT Equipe_Equipier_AK UNIQUE (id_equipier)
 )WITHOUT OIDS;

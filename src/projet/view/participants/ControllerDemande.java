@@ -40,8 +40,6 @@ public class ControllerDemande {
 	private TextField tf_telephone;
 	@FXML
 	private TextField tf_mail;
-	@FXML
-	private ListView<Participants> lv_ListeDemande;
 
 	@Inject
 	private IManagerGui		managerGui;
@@ -73,11 +71,13 @@ public class ControllerDemande {
 	private void addToBase() {
 		// Ajoute à la BD le participant en passant ça variable participant/valider à true
 		modelParticipant.preparerAjoutBase(modelParticipant.getCourant());
+		managerGui.showView( EnumView.ListeDemandeInscrit);
 	}
 	@FXML
 	private void removeFromBase() {
 		// Remove l'individu de la BD
 		modelParticipant.supprimer(modelParticipant.getCourant());
+		managerGui.showView( EnumView.ListeDemandeInscrit);
 	}
 
 }

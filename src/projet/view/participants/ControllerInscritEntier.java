@@ -52,6 +52,7 @@ public class ControllerInscritEntier {
 	
 	@FXML
 	private void toRetour() {
+		
 		managerGui.showView( EnumView.ListeInscrits);
 	}
 	
