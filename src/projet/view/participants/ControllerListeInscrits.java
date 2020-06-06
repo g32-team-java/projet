@@ -35,7 +35,6 @@ public class ControllerListeInscrits {
 	private void toAccueil() {
 		managerGui.showView( EnumView.Accueil );
 	}
-
 	@FXML
 	private void toListeDemande() {
 		managerGui.showView( EnumView.ListeDemandeInscrit);

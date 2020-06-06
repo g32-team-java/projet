@@ -54,6 +54,7 @@ INSERT INTO role (idcompte, role) VALUES
   ALTER TABLE benevole ALTER COLUMN id_benevole RESTART WITH 1;
  
   INSERT INTO Club (nom_club) VALUES
+  ('Pas de club'),
   ('Les Limougeauds'),
   ('Les Dijonnais'),
   ('CM de LaVille');
@@ -62,15 +63,15 @@ INSERT INTO role (idcompte, role) VALUES
   
    INSERT INTO Participant (prenom,nom, date_naissance, telephone, adresse, cp, ville, certificat_ok, inscription_ok, id_club, id_utilisateur) VALUES
  
- ('Jena','DUPOND', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'1','6'),
- ('Alfred','ALEX', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '2','7'),
- ('Michel','JACKY', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'3','8'),
- ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'2','9'),
- ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '1','10'),
- ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '3','11');
+ ('Jena','DUPOND', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'2','6'),
+ ('Alfred','ALEX', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '3','7'),
+ ('Michel','JACKY', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'4','8'),
+ ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','9'),
+ ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','10'),
+ ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','11');
 
  
-  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 1;
+  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 7;
   	
    INSERT INTO Raid (type_raid) VALUES
   ('Grand Bol d''air'),
