@@ -57,8 +57,7 @@ public class ControllerDemande {
 		tf_cp.textProperty().bindBidirectional( courant.cpProperty(), new ConverterStringInteger() );
 		tf_ville.textProperty().bindBidirectional( courant.villeProperty() );
 		tf_telephone.textProperty().bindBidirectional( courant.telephoneProperty(),  new ConverterStringInteger());
-		
-	//	tf_mail.textProperty().bindBidirectional( courant.mailProperty() );
+	
 		
 	}
 	

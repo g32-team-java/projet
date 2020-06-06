@@ -38,10 +38,6 @@
                </GridPane.margin></Label>
             <Label text="Adresse" GridPane.rowIndex="1" />
             <Label text="Téléphone" GridPane.rowIndex="2" />
-            <Label prefHeight="17.0" prefWidth="50.0" text="Mail :" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="212.0" />
-               </GridPane.margin></Label>
             <TextField fx:id="tf_nom" disable="true" editable="false" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="150.0" />
@@ -60,7 +56,6 @@
                <GridPane.margin>
                   <Insets right="150.0" />
                </GridPane.margin></TextField>
-            <TextField fx:id="tf_mail" disable="true" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button fx:id="b_Accepter" mnemonicParsing="false" onAction="#addToBase" text="Accepter" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button fx:id="b_Refuser" mnemonicParsing="false" onAction="#removeFromBase" text="Refuser" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
