@@ -57,7 +57,6 @@ public class ModelParticipant {
 	// Préparations de modifs
 	
 	public void preparerModifier(Participants item) {
-		System.out.println(item.getId());
 		mapper.update(courant, daoParticipant.retrouverParticipant(item.getId()));
 	}
 	
