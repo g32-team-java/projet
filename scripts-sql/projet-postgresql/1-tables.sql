@@ -42,8 +42,8 @@ CREATE TABLE Poste(
 	nb_poste           INTEGER  NOT NULL ,
 	majeur             BOOL  NOT NULL ,
 	membre             BOOL  NOT NULL ,
-	horaire_deb_esti   TIMETZ  NOT NULL ,
-	horaire_fin_esti   TIMETZ  NOT NULL  ,
+	horaire_deb_esti   TIME  NOT NULL ,
+	horaire_fin_esti   TIME  NOT NULL  ,
 	CONSTRAINT Poste_PK PRIMARY KEY (id_poste)
 )WITHOUT OIDS;
 

@@ -5,13 +5,10 @@ import javax.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import jfox.javafx.util.ConverterStringInteger;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Stats;
 import projet.view.EnumView;
-import projet.view.memo.ModelMemo;
+
 
 public class ControllerStats {
 	

@@ -11,7 +11,6 @@ import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Participants;
 import projet.data.Poste;
-import projet.data.Service;
 import projet.view.EnumView;
 
 public class ControllerListePostes {

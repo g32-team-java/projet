@@ -7,10 +7,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.util.converter.IntegerStringConverter;
 import jfox.javafx.util.ConverterStringInteger;
+import jfox.javafx.util.ConverterStringLocalTime;
 import jfox.javafx.util.ListenerFocusValidation;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Poste;
-import projet.data.Service;
 import projet.view.EnumView;
 
 
@@ -26,6 +26,11 @@ public class ControllerPosteForm {
 	private TextField		tf_nbPoste;
 	@FXML
 	private CheckBox		cb_majeur;
+	
+	@FXML
+	private TextField tf_horaire_deb;
+	@FXML
+	private TextField tf_horaire_fin;
 	
 	@FXML
 	private CheckBox		cb_membre;
@@ -55,6 +60,8 @@ public class ControllerPosteForm {
 		cb_majeur.selectedProperty().bindBidirectional( courant.majeurProperty() );
 		cb_membre.selectedProperty().bindBidirectional( courant.membreProperty() );
 		
+		tf_horaire_deb.textProperty().bindBidirectional(courant.heure_debutProperty(), new ConverterStringLocalTime());
+		tf_horaire_fin.textProperty().bindBidirectional(courant.heure_finProperty(), new ConverterStringLocalTime());
 	}
 	
 	

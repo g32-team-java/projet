@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,8 +14,6 @@ import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
 import projet.data.Poste;
-import projet.data.Service;
-
 
 public class DaoPoste {
 
@@ -110,12 +108,14 @@ public class DaoPoste {
 		
 		try {
 			cn = dataSource.getConnection();
-			sql = "INSERT INTO poste ( nom, nb_poste, majeur, membre,horaire_deb_esti,horaire_fin_esti ) VALUES( ?, ?, ?,?, '00:00:00', '00:00:00' ) ";
+			sql = "INSERT INTO poste ( nom, nb_poste, majeur, membre,horaire_deb_esti,horaire_fin_esti ) VALUES( ?, ?, ?,?, ?, ? ) ";
 			stmt = cn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 			stmt.setObject( 1, poste.getNom() );
 			stmt.setObject( 2, poste.getNbPoste() );
 			stmt.setObject( 3, poste.getMajeur() );
 			stmt.setObject( 4, poste.getMembre() );
+			stmt.setObject(5, poste.getHeure_debut());
+			stmt.setObject(6, poste.getHeure_fin());
 			stmt.executeUpdate();
 
 			// Récupère l'identifiant généré par le SGBD
@@ -139,13 +139,15 @@ public class DaoPoste {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE poste SET nom = ?, nb_poste = ?, majeur = ?, membre = ?  WHERE id_poste =  ?";
+			sql = "UPDATE poste SET nom = ?, nb_poste = ?, majeur = ?, membre = ?, horaire_deb_esti= ?, horaire_fin_esti = ? WHERE id_poste =  ?";
 			stmt = cn.prepareStatement( sql );
 			stmt.setObject( 1, poste.getNom() );
 			stmt.setObject( 2, poste.getNbPoste() );
 			stmt.setObject( 3, poste.getMajeur() );
 			stmt.setObject( 4, poste.getMembre() );
-			stmt.setObject(5, poste.getId());
+			stmt.setObject(5, poste.getHeure_debut());
+			stmt.setObject(6, poste.getHeure_fin());
+			stmt.setObject(7, poste.getId());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -165,6 +167,8 @@ public class DaoPoste {
 		poste.setNbPoste(rs.getObject("nb_poste", Integer.class));
 		poste.setMajeur(rs.getObject("majeur", Boolean.class));
 		poste.setMembre(rs.getObject("membre", Boolean.class));
+		poste.setHeure_debut(rs.getObject("horaire_deb_esti", LocalTime.class));
+		poste.setHeure_fin(rs.getObject("horaire_fin_esti", LocalTime.class));
 		return poste;
 	}
 	

@@ -1,6 +1,8 @@
 package projet.data;
 
 
+import java.time.LocalTime;
+
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,21 +15,9 @@ public class Poste {
 	private Property<Integer> nbPoste= new SimpleObjectProperty<>();
 	private final Property<Boolean> majeur	 = new SimpleObjectProperty<>();
 	private final Property<Boolean> membre = new SimpleObjectProperty<>();
-	//private final Property<Time> heue_debut = new SimpleObjectProperty<>()
+	private final Property<LocalTime> heure_debut = new SimpleObjectProperty<>();
+	private final Property<LocalTime> heure_fin = new SimpleObjectProperty<>();
 	
-	public Poste(){
-		
-	}
-	
-	public Poste(int id, String nom,int nbPoste, boolean majeur, boolean membre ){
-		setId(id);
-		setNom(nom);
-		setNbPoste(nbPoste);
-		setNom(nom);
-		setMajeur(majeur);
-		setMembre(membre);
-	}
-
 	
 	@Override
 	public String toString() {
@@ -108,4 +98,33 @@ public class Poste {
 		this.membreProperty().setValue(membre);
 	}
 
+	public final Property<LocalTime> heure_debutProperty() {
+		return this.heure_debut;
+	}
+	
+
+	public final LocalTime getHeure_debut() {
+		return this.heure_debutProperty().getValue();
+	}
+	
+
+	public final void setHeure_debut(final LocalTime heure_debut) {
+		this.heure_debutProperty().setValue(heure_debut);
+	}
+	
+
+	public final Property<LocalTime> heure_finProperty() {
+		return this.heure_fin;
+	}
+	
+
+	public final LocalTime getHeure_fin() {
+		return this.heure_finProperty().getValue();
+	}
+	
+
+	public final void setHeure_fin(final LocalTime heure_fin) {
+		this.heure_finProperty().setValue(heure_fin);
+	}
+		
 }

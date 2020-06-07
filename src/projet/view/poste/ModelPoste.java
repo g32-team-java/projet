@@ -1,22 +1,16 @@
 package projet.view.poste;
 
-import javax.annotation.PostConstruct;
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.image.Image;
+
 import jfox.commun.exception.ExceptionValidation;
 import jfox.javafx.util.UtilFX;
 import projet.commun.IMapper;
 import projet.dao.DaoPoste;
 import projet.data.Poste;
-import projet.data.Service;
-import projet.view.personne.ModelCategorie;
+
 
 public class ModelPoste {
 	
@@ -57,6 +51,9 @@ public class ModelPoste {
 			message.append( "\nLe nom ne doit pas être vide." );
 		} else  if ( courant.getNom().length()> 50 ) {
 			message.append( "\nLe nom est trop long : 50 maxi." );
+		}
+		if(courant.getHeure_debut() == null || courant.getHeure_fin() ==null ) {
+			message.append( "\nLe format de l'horaire est HH:MM" );
 		}
 		
 		if(courant.getMajeur() == null) {

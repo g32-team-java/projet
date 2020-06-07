@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import jfox.dao.jdbc.UtilJdbc;
-import projet.data.Categorie;
+
 import projet.data.Participants;
 
 

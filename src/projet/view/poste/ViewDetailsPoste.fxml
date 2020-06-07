@@ -62,8 +62,8 @@
                </GridPane.margin>
             </CheckBox>
             <Label prefHeight="17.0" prefWidth="83.0" text="  horaire fin" GridPane.rowIndex="2" />
-            <TextField fx:id="Telephone1" disable="true" prefHeight="3.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="Telephone11" disable="true" prefHeight="3.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tf_horaire_deb" prefHeight="3.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tf_horaire_fin" prefHeight="3.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Nombre de postes" GridPane.columnIndex="2" />
             <TextField fx:id="tf_nbPoste" GridPane.columnIndex="3" />
             <Button mnemonicParsing="false" onAction="#doValider" text="Valider" GridPane.columnIndex="2" GridPane.rowIndex="3">

@@ -136,22 +136,22 @@ INSERT INTO role (idcompte, role) VALUES
  
  
  INSERT INTO poste (nom, nb_poste, majeur, membre, horaire_deb_esti, horaire_fin_esti) VALUES
-  ('parking voiture', 2, TRUE, TRUE, '07:00', '09:00'),
-  ('parking vélo', 2, FALSE, TRUE, '07:00', '09:00'),
-  ('remise des dossards', 4,FALSE, TRUE, '07:00', '09:00'),
-  ('signaleur', 37, FALSE, FALSE, '08:30', '13:30'),
-  ('ravitaillement 1', 2, FALSE,FALSE, '09:00', '13:00'),
-  ('ravitaillement 2', 2, FALSE,FALSE, '09:00', '13:00'),
-  ('ravitaillement 3', 2, FALSE,FALSE, '09:00', '13:00'),
-  ('sécurité sur eau', 6, FALSE, TRUE, '09:00', '10:30'),
-  ('chronométrage 1', 2, FALSE, FALSE, '09:30','10:30' ),
-  ('chronométrage 2', 2, FALSE, FALSE, '10:15', '11:15' ),
-  ('chronométrage 3', 2, FALSE, FALSE, '13:30', '14:30'),
-  ('moto (fermeture)', 2, TRUE, FALSE, '09:00', '13:30'),
-  ('buvette', 5, FALSE, TRUE, '07:00', '15:00'),
-  ('repas', 3, FALSE, FALSE, '11:00', '14:00'),
-  ('recuperation puces', 1, FALSE, TRUE, '12:00', '13:30'),
-  ('photographe', 2, TRUE, FALSE, '07:00', '14:00');
+  ('parking voiture', 2, TRUE, TRUE, {t '07:00'}, {t '09:00'}),
+  ('parking vélo', 2, FALSE, TRUE, {t '07:00' }, {t '09:00' }),
+  ('remise des dossards', 4,FALSE, TRUE, {t '07:00' }, {t '09:00' }),
+  ('signaleur', 37, FALSE, FALSE, {t '08:30' }, {t '13:30' }),
+  ('ravitaillement 1', 2, FALSE,FALSE, {t '09:00' }, {t '13:00' }),
+  ('ravitaillement 2', 2, FALSE,FALSE, {t '09:00' }, {t '13:00' }),
+  ('ravitaillement 3', 2, FALSE,FALSE, {t '09:00' }, {t '13:00' }),
+  ('sécurité sur eau', 6, FALSE, TRUE, {t '09:00' }, {t '10:30' }),
+  ('chronométrage 1', 2, FALSE, FALSE, {t '09:30' }, {t '10:30'  }),
+  ('chronométrage 2', 2, FALSE, FALSE, {t '10:15' }, {t '11:15' } ),
+  ('chronométrage 3', 2, FALSE, FALSE, {t '13:30' }, {t '14:30' }),
+  ('moto (fermeture)', 2, TRUE, FALSE, {t '09:00' }, {t '13:30' }),
+  ('buvette', 5, FALSE, TRUE, {t '07:00' }, {t '15:00' }),
+  ('repas', 3, FALSE, FALSE, {t '11:00' }, {t '14:00' }),
+  ('recuperation puces', 1, FALSE, TRUE, {t '12:00' }, {t '13:30' }),
+  ('photographe', 2, TRUE, FALSE, {t '07:00' }, {t '14:00' });
   
   INSERT INTO benevole (prenom, nom, permis, majeur, membre, telephone, id_utilisateur) VALUES
   ('Baptiste', 'Paterne', TRUE,TRUE, FALSE, 0770707070, 1 ),
