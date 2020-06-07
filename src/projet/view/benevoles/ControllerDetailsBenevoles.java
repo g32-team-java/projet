@@ -4,11 +4,8 @@ import javax.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import jfox.javafx.util.ConverterStringInteger;
-import jfox.javafx.util.UtilFX;
 import jfox.javafx.view.IManagerGui;
 import projet.data.Benevoles;
 import projet.view.EnumView;
@@ -27,6 +24,10 @@ private ModelBenevoles modelBenevoles;
 	private Button Modifier;
 	@FXML
 	private Button Supprimer;
+	@FXML
+	private Button Bmajeur;
+	@FXML
+	private Button Bpermis;
 	
 	@FXML
 	private CheckBox permis;
@@ -41,8 +42,6 @@ private ModelBenevoles modelBenevoles;
 	private TextField Telephone;
 	@FXML
 	private TextField Poste;
-	@FXML
-	private TextField Mail;
 	
 
 	@FXML
@@ -53,12 +52,25 @@ private ModelBenevoles modelBenevoles;
 		Prenom.textProperty().bindBidirectional(courant.prenomProperty());
 		Telephone.textProperty().bindBidirectional(courant.telephoneProperty(), new ConverterStringInteger() );
 		Poste.textProperty().bindBidirectional(courant.posteProperty());
-		Mail.textProperty().bindBidirectional(courant.mailProperty());
 		
 		majeur.selectedProperty().bind(courant.majeurProperty());
 		permis.selectedProperty().bind(courant.permisProperty());
+		
+		Bmajeur.setOpacity(0);
+		Bpermis.setOpacity(0);
+		
 	}
 
+	@FXML
+	private void doPermis() {
+		modelBenevoles.getCourant().setPermis(!modelBenevoles.getCourant().getPermis());
+	}
+	
+	@FXML
+	private void doMajeur() {
+		modelBenevoles.getCourant().setMajeur(!modelBenevoles.getCourant().getMajeur());
+	}
+	
 	@FXML
 	private void toBenevoles() {
 		managerGui.showView(EnumView.Benevoles);
@@ -68,14 +80,28 @@ private ModelBenevoles modelBenevoles;
 	private void modifierBenevole() {
 		if(!modif) {					//passe en mode modification
 			modif=true;
+			
+			Nom.setDisable(false);
+			Prenom.setDisable(false);
 			Telephone.setDisable(false);
+			
+			Bmajeur.setOpacity(1);
+			Bpermis.setOpacity(1);
+			
 			Retour.setDisable(true);
 			Modifier.setText("Valider");
 			Supprimer.setText("Annuler");
 		}
-		else {
-			modif=false;				//valide la modification
+		else {							//valide la modification
+			modif=false;				
+			
+			Nom.setDisable(true);
+			Prenom.setDisable(true);
 			Telephone.setDisable(true);
+			
+			Bmajeur.setOpacity(0);
+			Bpermis.setOpacity(0);
+
 			Retour.setDisable(false);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
@@ -87,13 +113,20 @@ private ModelBenevoles modelBenevoles;
 	
 	public void refresh() {
 		modelBenevoles.infoActualiserBenevoles(modelBenevoles.getCourant());
-		
 	}
+	
 	@FXML
 	private void supprimerBenevole() {
 		if(modif) {						//annule la modification
 			modif=false;
+			
+			Nom.setDisable(true);
+			Prenom.setDisable(true);
 			Telephone.setDisable(true);
+			
+			Bmajeur.setOpacity(0);
+			Bpermis.setOpacity(0);
+			
 			Retour.setDisable(false);
 			Modifier.setText("Modifier");
 			Supprimer.setText("Supprimer");
@@ -104,4 +137,6 @@ private ModelBenevoles modelBenevoles;
 		}
 		
 	}
+	
+
 }

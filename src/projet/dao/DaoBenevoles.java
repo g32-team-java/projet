@@ -87,21 +87,6 @@ public class DaoBenevoles {
 			UtilJdbc.close(rs, stmt, cn);
 		}
 		
-		try {
-			cn = dataSource.getConnection();
-			sql = "SELECT mail FROM utilisateur u INNER JOIN benevole b ON u.id_utilisateur=b.id_utilisateur WHERE id_benevole= ?";
-			stmt = cn.prepareStatement(sql);
-			stmt.setObject(1, idbenevole);
-			rs = stmt.executeQuery();
-			while(rs.next()) {
-				benevole.setMail(rs.getObject("mail",String.class));
-			}
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			UtilJdbc.close(rs, stmt, cn);
-		}
 		return benevole;
 	}
 
@@ -123,10 +108,14 @@ public class DaoBenevoles {
 
 		try {
 			cn = dataSource.getConnection();
-			sql = "UPDATE benevole SET telephone = ?WHERE id_benevole =  ?";
+			sql = "UPDATE benevole SET nom = ?, prenom = ? , telephone = ? , majeur = ? , permis = ?  WHERE id_benevole =  ?";
 			stmt = cn.prepareStatement(sql);
-			stmt.setObject(1, benevole.getTelephone());
-			stmt.setObject(2, benevole.getId());
+			stmt.setObject(1, benevole.getNom());
+			stmt.setObject(2, benevole.getPrenom());
+			stmt.setObject(3, benevole.getTelephone());
+			stmt.setObject(4, benevole.getMajeur());
+			stmt.setObject(5, benevole.getPermis());
+			stmt.setObject(6, benevole.getId());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -134,6 +123,7 @@ public class DaoBenevoles {
 		} finally {
 			UtilJdbc.close(stmt, cn);
 		}
+
 	}
 
 	public void supprimer(int idBenevole) {
@@ -211,23 +201,7 @@ public class DaoBenevoles {
 		} finally {
 			UtilJdbc.close(rs, stmt, cn);
 		}
-		
-		try {
-			cn = dataSource.getConnection();
-			sql = "SELECT mail FROM utilisateur u INNER JOIN benevole b ON u.id_utilisateur=b.id_utilisateur WHERE id_benevole= ?";
-			stmt = cn.prepareStatement(sql);
-			stmt.setObject(1, idbenevole);
-			rs = stmt.executeQuery();
-			while(rs.next()) {
-				benevole.setMail(rs.getObject("mail",String.class));
-			}
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			UtilJdbc.close(rs, stmt, cn);
-		}
-		
+				
 		return benevole;
 	}
 	

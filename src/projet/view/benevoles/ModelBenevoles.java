@@ -1,11 +1,7 @@
 package projet.view.benevoles;
 
-import java.util.LinkedList;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jfox.javafx.util.UtilFX;
