@@ -111,7 +111,7 @@ private ModelBenevoles modelBenevoles;
 			Supprimer.setText("Supprimer");
 			modelBenevoles.getCourant().setTelephone(Integer.parseInt(Telephone.getText()));
 			modelBenevoles.modifier(modelBenevoles.getCourant());
-			managerGui.showView(EnumView.DetailsBenevoles);
+			managerGui.showView(EnumView.Benevoles);
 		}
 	}
 	
