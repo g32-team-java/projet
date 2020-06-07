@@ -87,6 +87,8 @@ private ModelBenevoles modelBenevoles;
 			
 			Bmajeur.setOpacity(1);
 			Bpermis.setOpacity(1);
+			Bmajeur.setDisable(false);
+			Bpermis.setDisable(false);
 			
 			Retour.setDisable(true);
 			Modifier.setText("Valider");
@@ -101,6 +103,8 @@ private ModelBenevoles modelBenevoles;
 			
 			Bmajeur.setOpacity(0);
 			Bpermis.setOpacity(0);
+			Bmajeur.setDisable(true);
+			Bpermis.setDisable(true);
 
 			Retour.setDisable(false);
 			Modifier.setText("Modifier");
@@ -126,6 +130,8 @@ private ModelBenevoles modelBenevoles;
 			
 			Bmajeur.setOpacity(0);
 			Bpermis.setOpacity(0);
+			Bmajeur.setDisable(true);
+			Bpermis.setDisable(true);
 			
 			Retour.setDisable(false);
 			Modifier.setText("Modifier");

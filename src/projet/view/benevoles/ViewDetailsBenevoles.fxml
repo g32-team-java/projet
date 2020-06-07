@@ -83,12 +83,12 @@
                   <Insets left="10.0" />
                </padding>
             </CheckBox>
-            <Button fx:id="Bmajeur" mnemonicParsing="false" onAction="#doMajeur" text="majeur" GridPane.columnIndex="3">
+            <Button fx:id="Bmajeur" disable="true" mnemonicParsing="false" onAction="#doMajeur" text="majeur" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="Bpermis" mnemonicParsing="false" onAction="#doPermis" text="permis" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="Bpermis" disable="true" mnemonicParsing="false" onAction="#doPermis" text="permis" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
