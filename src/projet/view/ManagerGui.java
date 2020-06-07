@@ -40,7 +40,7 @@ public class ManagerGui extends ManagerGuiAbstract {
 		// Configure le stage
 		stage.setTitle( "Bol d'Air" );
 		stage.setWidth(600);
-		stage.setHeight(440);
+		stage.setHeight(600);
 		stage.setMinWidth(400);
 		stage.setMinHeight(300);
 		stage.getIcons().add(new Image(getClass().getResource("icone.png").toExternalForm()));

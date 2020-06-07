@@ -61,13 +61,36 @@ INSERT INTO role (idcompte, role) VALUES
  ('v.dereclenne@gmail.com', 'I12020'),
  ('monstergege@gmail.com', 'calloflover'),
  ('kekezez@gmail.com', 'punkdebutant'),
+ ('huiteuros@gmail.com', '8euros'),
+ ('baptiste.paterne@gmail.com', 'I12019'),
+ ('v.dereclenne@gmail.com', 'I12020'),
+ ('monstergege@gmail.com', 'calloflover'),
+ ('kekezez@gmail.com', 'punkdebutant'),
+ ('huiteuros@gmail.com', '8euros'),
+ ('dupond.jena@gmail.com','I12500'),
+ ('alex.alfred@gmail.com','I12000'),
+ ('jacky.michel@gmail.com','I12021'),
+ ('lebg.jean@gmail.com','elements'),
+ ('parlamamain@gmail.com','fatal'),
+ ('trevis.alabama@gmail.com','842512'),
+ ('baptiste.paterne@gmail.com', 'I12019'),
+ ('v.dereclenne@gmail.com', 'I12020'),
+ ('monstergege@gmail.com', 'calloflover'),
+ ('kekezez@gmail.com', 'punkdebutant'),
+ ('huiteuros@gmail.com', '8euros'),
+ ('baptiste.paterne@gmail.com', 'I12019'),
+ ('v.dereclenne@gmail.com', 'I12020'),
+ ('monstergege@gmail.com', 'calloflover'),
+ ('kekezez@gmail.com', 'punkdebutant'),
+ ('huiteuros@gmail.com', '8euros'),
+ ('baptiste.paterne@gmail.com', 'I12019'),
+ ('v.dereclenne@gmail.com', 'I12020'),
+ ('monstergege@gmail.com', 'calloflover'),
+ ('kekezez@gmail.com', 'punkdebutant'),
  ('huiteuros@gmail.com', '8euros');
  
+ ALTER TABLE utilisateur ALTER COLUMN id_utilisateur RESTART WITH 53;
  
- 
-  
-  
-  ALTER TABLE benevole ALTER COLUMN id_benevole RESTART WITH 1;
  
   INSERT INTO Club (nom_club) VALUES
   ('Pas de club'),
@@ -84,10 +107,17 @@ INSERT INTO role (idcompte, role) VALUES
  ('Michel','JACKY', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'4','8'),
  ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','9'),
  ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','10'),
- ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','11');
+ ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','11'),
+ ('Jena','DUPOND', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'2','27'),
+ ('Alfred','ALEX', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '3','28'),
+ ('Michel','JACKY', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'4','29'),
+ ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','30'),
+ ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','31'),
+ ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','32');
+
 
  
-  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 7;
+  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 13;
   	
    INSERT INTO Raid (type_raid) VALUES
   ('Grand Bol d''air'),

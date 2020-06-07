@@ -20,6 +20,7 @@ public class MenuBarAppli extends MenuBar {
 	
 	private Menu	menuBenevoles;
 	private Menu	menuParticipants;
+	private Menu	menuPoste;
 	
 	private MenuItem itemDeconnecter;
 	
@@ -87,6 +88,13 @@ public class MenuBarAppli extends MenuBar {
 		menu.getItems().add( item );
 
 		
+		menu =  new Menu( "Poste" );;
+		this.getMenus().add(menu);
+		menuPoste = menu;
+		
+		item = new MenuItem( "Liste des Postes" );
+		item.setOnAction(  (e) -> managerGui.showView( EnumView.Postes )  );
+		menu.getItems().add( item );
 		
 		// Configuration initiale du menu
 		configurerMenu( modelConnexion.getCompteActif() );

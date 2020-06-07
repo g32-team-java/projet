@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.poste.ControllerListePostes">
    <top>
-      <Label text="Liste des participants inscrits" textFill="#0015ff" BorderPane.alignment="CENTER">
+      <Label text="Liste des postes" textFill="#0015ff" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
