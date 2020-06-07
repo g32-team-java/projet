@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.view.poste.ControllerListePostes">
+   <top>
+      <Label text="Liste des participants inscrits" textFill="#0015ff" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="b_retour" mnemonicParsing="false" onAction="#toRetour" prefWidth="73.0" text="Retour" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="b_Ajouter" mnemonicParsing="false" onAction="#doAjouter" prefWidth="73.0" text="Ajouter" textAlignment="CENTER" />
+            <Button fx:id="b_Supprimer" mnemonicParsing="false" onAction="#doModifier" prefWidth="73.0" text="Modifier" textAlignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#doSupprimer" text="Supprimer" textAlignment="CENTER" />
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <ListView fx:id="lv_ListePoste" onMouseClicked="#gererClicSurListe" prefHeight="293.0" prefWidth="305.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

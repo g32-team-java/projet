@@ -12,10 +12,13 @@ public class ControllerAccueil {
 private IManagerGui			managerGui;
 	
 	@FXML
-	private Button Participants;
+	private Button b_Participants;
 	
 	@FXML
-	private Button Benevoles;
+	private Button b_Benevoles;
+	
+	@FXML
+	private Button b_Postes;
 	
 	@FXML
 	private void toParticipants() {
@@ -25,5 +28,10 @@ private IManagerGui			managerGui;
 	@FXML
 	private void toBenevoles() {
 		managerGui.showView( EnumView.Benevoles );
+	}
+	
+	@FXML
+	private void toPostes() {
+		managerGui.showView( EnumView.Postes );
 	}
 }

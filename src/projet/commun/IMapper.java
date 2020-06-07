@@ -10,6 +10,7 @@ import projet.data.Compte;
 import projet.data.Memo;
 import projet.data.Participants;
 import projet.data.Personne;
+import projet.data.Poste;
 import projet.data.Service;
 
 
@@ -27,6 +28,8 @@ public interface IMapper {
 	Memo update( @MappingTarget Memo target, Memo source );
 	
 	Participants update( @MappingTarget Participants target, Participants source);
+	
+	Poste update( @MappingTarget Poste target, Poste source);
 
 	Service update( @MappingTarget Service target, Service source );
 	
