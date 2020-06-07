@@ -88,7 +88,5 @@ public class ModelPoste {
 		daoPoste.supprimer( item.getId() );
 		mapper.update( courant, UtilFX.findNext( liste, item ) );
 	}
-	
-	
 
 }
