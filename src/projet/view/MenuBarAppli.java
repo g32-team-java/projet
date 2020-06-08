@@ -104,7 +104,6 @@ public class MenuBarAppli extends MenuBar {
 					Platform.runLater( () -> configurerMenu( modelConnexion.getCompteActif() ) );
 				}
 			); 
-		
 	}
 
 	
@@ -116,13 +115,14 @@ public class MenuBarAppli extends MenuBar {
 		
 		menuBenevoles.setVisible(false);
 		menuParticipants.setVisible(false);
-		menuParticipants.setVisible(false);
+		menuPoste.setVisible(false);
 		
 		if( compteActif != null ) {
 			itemDeconnecter.setDisable(false);
 			if( compteActif.isInRole( Roles.UTILISATEUR) ) {
 				menuBenevoles.setVisible(true);
 				menuParticipants.setVisible(true);
+				menuPoste.setVisible(true);
 			}
 			if( compteActif.isInRole( Roles.ADMINISTRATEUR ) ) {
 				menuBenevoles.setVisible(true);
