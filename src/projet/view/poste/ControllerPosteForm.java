@@ -64,7 +64,6 @@ public class ControllerPosteForm {
 		tf_horaire_fin.textProperty().bindBidirectional(courant.heure_finProperty(), new ConverterStringLocalTime());
 	}
 	
-	
 	// Actions
 	
 	@FXML

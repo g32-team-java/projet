@@ -153,8 +153,8 @@ CREATE TABLE Avoir(
 	horaire_fin   TIMETZ  NOT NULL  ,
 	CONSTRAINT Avoir_PK PRIMARY KEY (id_poste,id_benevole)
 
-	,CONSTRAINT Avoir_Poste_FK FOREIGN KEY (id_poste) REFERENCES Poste(id_poste)
-	,CONSTRAINT Avoir_Benevole0_FK FOREIGN KEY (id_benevole) REFERENCES Benevole(id_benevole)
+	,CONSTRAINT Avoir_Poste_FK FOREIGN KEY (id_poste) REFERENCES Poste(id_poste) ON DELETE CASCADE
+	,CONSTRAINT Avoir_Benevole0_FK FOREIGN KEY (id_benevole) REFERENCES Benevole(id_benevole) ON DELETE CASCADE
 )WITHOUT OIDS;
 
 

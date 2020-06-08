@@ -108,16 +108,23 @@ INSERT INTO role (idcompte, role) VALUES
  ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','9'),
  ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','10'),
  ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','11'),
- ('Jena','DUPOND', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'2','27'),
- ('Alfred','ALEX', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '3','28'),
- ('Michel','JACKY', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'4','29'),
- ('Jean','DEPARDIEU','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','30'),
- ('Eric','KANT', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','31'),
- ('Trevis','ALABAMA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','32');
-
+ ('Manny','DUPONT', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'2','27'),
+ ('Manu','CHAO', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '3','28'),
+ ('Mickael','JACKSON', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'4','29'),
+ ('Alfredo','GONZALES','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','30'),
+ ('N''Golo','KANTE', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','31'),
+ ('Paul','POGBA', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','32'),
+ ('Yannick','NOAH', '2000-02-25','0670079746','3 rue de la Marne','87000','Limoges',TRUE,TRUE,'2','33'),
+ ('Britney','SPEARS', '2001-12-12','0635248547','5 avenue de la liberté','21110','FAUVERNEY',TRUE,FALSE, '3','34'),
+ ('Scarlett','JOHANNSON', '1995-01-01','0632698546','18 bis avenue Jean Charles','87000','87000',TRUE,TRUE,'4','35'),
+ ('Ricardo','MARTINEZ','1996-05-18','0632541230','45 rue Eric Cantona','21000','Dijon',TRUE,FALSE,'3','36'),
+ ('Jacky','CHAN', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','37'),
+ ('Bruce','LEE', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','38'),
+ ('Chuck','NORRIS', '1992-04-22','0635996585','86 rue du vide','87000','Limoges',TRUE,TRUE, '2','39'),
+ ('Sylvester','STALLONE', '1958-06-18','0625356595','54 rue des Paquerettes','21000','Dijon',TRUE,TRUE, '4','40');
 
  
-  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 13;
+  ALTER TABLE participant ALTER COLUMN id_participant RESTART WITH 41;
   	
    INSERT INTO Raid (type_raid) VALUES
   ('Grand Bol d''air'),

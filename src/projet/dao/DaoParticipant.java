@@ -122,6 +122,7 @@ public class DaoParticipant {
 		} finally {
 			UtilJdbc.close( stmt, cn );
 		}
+	
 	}
 	
 	public void modifier( Participants participant ) {
